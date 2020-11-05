@@ -4,7 +4,20 @@ import styled from 'styled-components';
 import {useInView} from 'react-intersection-observer';
 
 const Entry = styled.article`
-  --columnWidth: calc(100% / 3 - .5rem);
+  @media only screen and (max-width: 599px) {
+    --columns: 1;
+  }
+  @media only screen and (min-width: 600px) {
+    --columns: 2;
+  }
+  @media only screen and (min-width: 800px) {
+    --columns: 3;
+  }
+  @media only screen and (min-width: 1200px) {
+    --columns: 4;
+  }
+
+  --columnWidth: calc(100% / var(--columns) - .5rem);
   --aspectRatio: calc(2 / 3);
 
   border: 1px #ddd solid;

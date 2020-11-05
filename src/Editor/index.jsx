@@ -24,7 +24,7 @@ const Editor = ({
 }) => {
   const [svg, setSvg] = useState(null);
 
-  const [showGuides, setShowGuides] = useState(true);
+  const [showGuides, setShowGuides] = useState(false);
   const [scale, setScale] = useState(1);
   const [shapeGroups, setShapeGroups] = useState([]);
 
@@ -42,7 +42,7 @@ const Editor = ({
     };
 
     fetchData();
-
+    setShowGuides(false);
     setScale(1);
   }, [id]);
 

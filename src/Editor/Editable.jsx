@@ -43,7 +43,9 @@ const Editable = ({
       const initials = {};
       // Init guides
 
-      getGuides().style.display = 'block';
+      const guides = getGuides();
+      guides.style.display = 'block';
+      guides.style.opacity = '0';
 
       // Init / reset scale
 

@@ -15,7 +15,7 @@ const Thumbnails = styled.div`
 
 const Main = () => {
   const [data, setData] = useState([]);
-  const [editable, setEditable] = useState('1a');
+  const [editable, setEditable] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,17 +24,20 @@ const Main = () => {
       }).then((result) => {
         result.json().then(({patterns}) => {
           setData(patterns);
+          setEditable(patterns[patterns.length - 1].id);
         });
       });
     };
     fetchData();
   }, []);
 
+  const atad = [...data].reverse();
+
   return (
     <div>
       {editable && <Editor id={editable} />}
       <Thumbnails>
-        {data.map(({id}) => (
+        {atad.map(({id}) => (
           <Thumbnail
             key={id}
             id={id}
