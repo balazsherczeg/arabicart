@@ -1,0 +1,118 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="2000" height="1000" viewBox="0 0 100% 100%">
+  <style>
+    :root {
+      --golden: #907A58;
+      --darkBlue: #475387;
+      --beige: #DFD8CC;
+      --teal: #4A9AC4;
+      --gray: #A49DA0;
+      --smaragd: #406A72;
+      --sand: #D3BDA7;
+      --grayGreen: #A2D1D6;
+      --blueGray: #758390;
+      --lightBrown: #AA8858;
+      --blue1: #8EC5EE;
+      --blue2: #8CC6EA;
+      --blue3: #B6DAEC;
+      --rust: #D8692D;
+      --yellow: #F8C346;
+    }
+    .shape-1{fill:var(--beige)}
+    .shape-2{fill:var(--darkBlue)}
+    .shape-3{fill:var(--golden)}
+    .shape-4{fill:var(--smaragd)}
+    .shape-5{fill:var(--blue2)}
+    .shape-6{fill:var(--golden)}
+    .shape-7{fill:var(--blue3)}
+    .line{stroke:#fff;stroke-width:18px}
+    .guides{stroke-width: 2px; stroke: #ff0; opacity: .5; display: none; fill: none;}
+  </style>
+  <defs>
+    <pattern id="pattern" width="473.229" height="819.649" patternUnits="userSpaceOnUse" patternTransform="scale(.7)">
+      <path class="shape-1" d="M-35.5-24.1h543.1v878.9H-35.5z"/>
+      <path class="shape-2" d="M-100 583L0 483l100 100-36.6-136.6L200 409.8 63.4 373.2 100 236.6 0 336.6l-100-100 36.6 136.6-136.6 36.6 136.6 36.6zM373.2 583l100-100 100 100-36.6-136.6 136.6-36.6-136.6-36.6 36.6-136.6-100 100-100-100 36.6 136.6-136.6 36.6 136.6 36.6zM136.6 173.2l100-100 100 100L300 36.6 436.6 0 300-36.6l36.6-136.6-100 100-100-100 36.6 136.6L36.6 0l136.6 36.6zM136.6 992.9l100-100 100 100L300 856.3l136.6-36.7L300 783l36.6-136.6-100 100.1-100-100.1L173.2 783 36.6 819.6l136.6 36.6z"/>
+      <g class="line">
+        <path transform="scale(-1) rotate(-75 -421.2 195.5)" class="shape-3" d="M79.3 252.5h141.4v141.4H79.3z"/>
+        <path transform="rotate(-15 150 496.4)" class="shape-3" d="M79.3 425.7h141.4v141.4H79.3z"/>
+        <path transform="rotate(-15 -150 323.2)" class="shape-3" d="M-220.7 252.5h141.4v141.4h-141.4z"/>
+        <path transform="rotate(-135 0 583)" class="shape-3" d="M-70.7 512.3H70.7v141.4H-70.7z"/>
+        <path transform="rotate(-135 0 236.6)" class="shape-3" d="M-70.7 165.9H70.7v141.4H-70.7z"/>
+        <path class="shape-3" d="M-100 583l36.6-136.6-136.6-36.6-36.6 136.6z"/>
+        <path transform="scale(-1) rotate(-75 -421.2 812.2)" class="shape-3" d="M552.5 252.5h141.4v141.4H552.5z"/>
+        <path transform="rotate(-15 623.2 496.4)" class="shape-3" d="M552.5 425.7h141.4v141.4H552.5z"/>
+        <path transform="rotate(-15 323.2 323.2)" class="shape-3" d="M252.5 252.5h141.4v141.4H252.5z"/>
+        <path transform="rotate(-135 473.2 583)" class="shape-3" d="M402.5 512.3h141.4v141.4H402.5z"/>
+        <path transform="rotate(-135 473.2 236.6)" class="shape-3" d="M402.5 165.9h141.4v141.4H402.5z"/>
+        <path transform="scale(-1) rotate(-75 -647 421.2)" class="shape-3" d="M252.5 425.7h141.4v141.4H252.5z"/>
+        <path transform="scale(-1) rotate(-75 112.9 503.9)" class="shape-3" d="M315.9-157.3h141.4v141.4H315.9z"/>
+        <path transform="rotate(-15 386.6 86.6)" class="shape-3" d="M315.9 15.9h141.4v141.4H315.9z"/>
+        <path transform="rotate(-15 86.6 -86.6)" class="shape-3" d="M15.9-157.3h141.4v141.4H15.9z"/>
+        <path transform="rotate(-135 236.6 173.2)" class="shape-3" d="M165.9 102.5h141.4v141.4H165.9z"/>
+        <path transform="rotate(-135 236.6 -173.2)" class="shape-3" d="M165.9-243.9h141.4v141.4H165.9z"/>
+        <path transform="scale(-1) rotate(-75 -112.9 112.9)" class="shape-3" d="M15.9 15.9h141.4v141.4H15.9z"/>
+        <path transform="scale(-1) rotate(-75 -955.4 503.9)" class="shape-3" d="M315.9 662.3h141.4v141.4H315.9z"/>
+        <path transform="rotate(-15 386.6 906.3)" class="shape-3" d="M315.9 835.5h141.4v141.4H315.9z"/>
+        <path transform="rotate(-15 86.6 733)" class="shape-3" d="M15.9 662.3h141.4v141.4H15.9z"/>
+        <path transform="rotate(-135 236.6 992.9)" class="shape-3" d="M165.9 922.1h141.4v141.4H165.9z"/>
+        <path transform="rotate(-135 236.6 646.4)" class="shape-3" d="M165.9 575.7h141.4v141.4H165.9z"/>
+        <path transform="scale(-1) rotate(-75 -1181 112.9)" class="shape-3" d="M15.9 835.5h141.4v141.4H15.9z"/>
+      </g>
+
+			<g class="guides">
+				<polygon class="st2" points="-0.001,136.577 236.613,273.187 236.612,546.405 -0.001,683.015 -236.617,546.405 -236.616,273.188 
+								"/>
+				<circle class="st2" cx="0.007" cy="409.802" r="200"/>
+				<line class="st2" x1="236.61" y1="273.198" x2="-236.599" y2="546.405"/>
+				<line class="st2" x1="118.309" y1="204.896" x2="-118.299" y2="614.716"/>
+				<line class="st2" x1="0.007" y1="136.577" x2="0.008" y2="683.015"/>
+				<line class="st2" x1="-118.294" y1="204.896" x2="118.309" y2="614.704"/>
+				<line class="st2" x1="-236.597" y1="273.196" x2="236.612" y2="546.405"/>
+				<line class="st2" x1="-236.616" y1="409.801" x2="236.61" y2="409.802"/>
+				<polygon class="st2" points="173.212,309.802 -199.992,409.801 173.212,509.802 -99.993,236.597 0.008,609.801 100.007,236.597 
+					-173.197,509.801 200.007,409.802 -173.196,309.8 100.007,583.007 0.007,209.802 -99.992,583.006 			"/>
+				<circle class="st2" cx="-0.003" cy="409.782" r="273.205"/>
+				<polygon class="st2" points="473.214,136.597 709.828,273.206 709.827,546.425 473.213,683.034 236.598,546.425 236.599,273.207 
+								"/>
+				<circle class="st2" cx="473.222" cy="409.821" r="200"/>
+				<line class="st2" x1="709.825" y1="273.218" x2="236.616" y2="546.425"/>
+				<line class="st2" x1="591.523" y1="204.916" x2="354.916" y2="614.735"/>
+				<line class="st2" x1="473.222" y1="136.597" x2="473.223" y2="683.034"/>
+				<line class="st2" x1="354.921" y1="204.915" x2="591.523" y2="614.724"/>
+				<line class="st2" x1="236.618" y1="273.216" x2="709.827" y2="546.425"/>
+				<line class="st2" x1="236.599" y1="409.82" x2="709.825" y2="409.821"/>
+				<polygon class="st2" points="646.427,309.821 273.223,409.82 646.427,509.821 373.222,236.616 473.223,609.82 573.222,236.616 
+					300.018,509.82 673.222,409.821 300.019,309.819 573.222,583.026 473.222,209.821 373.223,583.025 			"/>
+				<circle class="st2" cx="473.212" cy="409.802" r="273.205"/>
+				<polygon class="st2" points="236.615,-273.224 473.229,-136.614 473.229,136.604 236.614,273.214 -0.001,136.604 0,-136.613 			
+					"/>
+				<circle class="st2" cx="236.623" cy="0.001" r="200"/>
+				<line class="st2" x1="473.227" y1="-136.603" x2="0.018" y2="136.604"/>
+				<line class="st2" x1="354.925" y1="-204.904" x2="118.317" y2="204.915"/>
+				<line class="st2" x1="236.623" y1="-273.224" x2="236.624" y2="273.214"/>
+				<line class="st2" x1="118.322" y1="-204.905" x2="354.925" y2="204.903"/>
+				<line class="st2" x1="0.02" y1="-136.604" x2="473.229" y2="136.604"/>
+				<line class="st2" x1="-36.592" y1="0" x2="509.818" y2="0.001"/>
+				<polygon class="st2" points="409.828,-99.999 36.624,0 409.828,100.001 136.623,-173.204 236.624,200 336.623,-173.204 
+					63.419,100 436.623,0.001 63.42,-100.001 336.623,173.206 236.623,-199.999 136.624,173.205 			"/>
+				<circle class="st2" cx="236.613" cy="-0.019" r="273.205"/>
+				<polygon class="st2" points="236.618,546.425 473.232,683.034 473.231,956.253 236.617,1092.862 0.002,956.253 0.003,683.035 			
+					"/>
+				<circle class="st2" cx="236.626" cy="819.649" r="200"/>
+				<line class="st2" x1="473.229" y1="683.046" x2="0.021" y2="956.253"/>
+				<line class="st2" x1="354.928" y1="614.744" x2="118.32" y2="1024.563"/>
+				<line class="st2" x1="236.626" y1="546.425" x2="236.627" y2="1092.862"/>
+				<line class="st2" x1="118.325" y1="614.743" x2="354.928" y2="1024.552"/>
+				<line class="st2" x1="0.022" y1="683.044" x2="473.231" y2="956.253"/>
+				<line class="st2" x1="-36.589" y1="819.648" x2="509.821" y2="819.649"/>
+				<polygon class="st2" points="409.831,719.649 36.627,819.648 409.831,919.649 136.626,646.444 236.627,1019.648 336.626,646.444 
+					63.422,919.648 436.626,819.649 63.423,719.647 336.626,992.854 236.626,619.649 136.627,992.854 			"/>
+				<circle class="st2" cx="236.616" cy="819.63" r="273.205"/>
+				<circle class="st2" cx="709.827" cy="819.63" r="273.205"/>
+				<circle class="st2" cx="709.825" cy="0.013" r="273.205"/>
+				<circle class="st2" cx="-236.597" cy="-0.009" r="273.205"/>
+				<circle class="st2" cx="-236.599" cy="819.61" r="273.205"/>
+			</g>
+    </pattern>
+  </defs>
+  <rect fill="url(#pattern)" width="100%" height="100%" stroke-width="0"/>
+</svg>

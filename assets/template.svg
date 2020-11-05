@@ -1,0 +1,41 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="2000" height="1000" viewBox="0 0 100% 100%">
+  <style>
+    :root {
+      --golden: #907A58;
+      --darkBlue: #475387;
+      --beige: #DFD8CC;
+      --teal: #4A9AC4;
+      --gray: #A49DA0;
+      --smaragd: #406A72;
+      --sand: #D3BDA7;
+      --grayGreen: #A2D1D6;
+      --blueGray: #758390;
+      --lightBrown: #AA8858;
+      --blue1: #8EC5EE;
+      --blue2: #8CC6EA;
+      --blue3: #B6DAEC;
+      --rust: #D8692D;
+      --yellow: #F8C346;
+    }
+    .shape-1{fill:var(--beige)}
+    .shape-2{fill:var(--grayGreen)}
+    .shape-3{fill:var(--teal)}
+    .shape-4{fill:var(--sand)}
+    .shape-5{fill:var(--blue2)}
+    .shape-6{fill:var(--golden)}
+    .shape-7{fill:var(--blue3)}
+    .line{stroke:#fff;stroke-width:20px}
+    .guides{stroke-width: 2px; stroke: #ff0; opacity: .5;display: none; fill: none}
+  </style>
+  <defs>
+    <pattern id="pattern" width="600" height="1039.244" patternUnits="userSpaceOnUse" patternTransform="scale(.5)">
+      <g class="line">
+
+      </g>
+      <g class="guides">
+
+      </g>
+    </pattern>
+  </defs>
+  <rect fill="url(#pattern)" width="100%" height="100%" stroke-width="0"/>
+</svg>

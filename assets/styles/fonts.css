@@ -1,0 +1,45 @@
+/* Fonts */
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v7/zhcz-_WihjSQC0oHJ9TCYAzyDMXhdD8sAj6OAJTFsBI.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Montserrat-Bold'), url(https://fonts.gstatic.com/s/montserrat/v7/IQHow_FEYlDC4Gzy_m8fcmaVI6zN22yiurzcBKxPjFE.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+@font-face {
+  font-family: 'LibreBodoni';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/assets/fonts/librebodoniv2002-regular.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'LibreBodoniItalic';
+  font-style: italic;
+  font-weight: 400;
+  src: url(/assets/fonts/librebodoniv2002-italic.woff2) format('woff2');
+}
+
+:root {
+  --xHeightAdjustment: 1.17;
+  --sans: Montserrat, sans-serif;
+  --serif: LibreBodoni, sans-serif;
+  --serifItalic: LibreBodoniItalic, serif;
+  --fontSizeSerif0: calc(1rem * var(--xHeightAdjustment));
+  --fontSize2: 1.62rem;
+  --fontSizeSerif2: calc(1.62rem * var(--xHeightAdjustment));
+}
+
+body {
+  font-family: var(--LibreBodoni);
+  line-height: 1.5rem;
+}
