@@ -1,113 +1,118 @@
-import React, {useEffect, useState, useRef, useCallback} from 'react';
-import {bool, func, node, number, object} from 'prop-types';
+import React, {useEffect, useState} from 'react';
+import {bool, func, string, number, object} from 'prop-types';
 import styled from 'styled-components';
 
-const Svg = styled.div`
-  svg {
-    height: calc(62vh);
-    width: 100%;
+import Display from './Display';
+import UpdateWithoutBlink from './UpdateWithoutBlink';
 
-    .guides {
-      transition: .3s opacity;
-    }
-  }
+const Wrapper = styled.div`
+  position: relative;
+  height: 100%;
 `;
 
+const getGuides = (svg) => svg.querySelector('.guides');
+
+const getAllShapes = (svg) => svg.querySelectorAll('[class*="shape-"]');
+
 const Editable = ({
-  svg,
+  src,
   shapeGroups,
   showGuides,
   scale,
   onInit,
+  onChange,
 }) => {
-  const ref = useRef(null);
-  const [initialScale, setInitialScale] = useState(1);
-
-  const getPattern = useCallback(
-    () => ref.current && ref.current.querySelector('#pattern'),
-    [],
-  );
-
-  const getGuides = useCallback(
-    () => ref.current && ref.current.querySelector('#pattern .guides'),
-    [],
-  );
-
-  const getAllShapes = useCallback(
-    () => ref.current && ref.current.querySelectorAll('[class*="shape-"]'),
-    [],
-  );
+  const [svg, setSvg] = useState(null);
+  const [s, setS] = useState(src);
 
   useEffect(() => {
-    if (ref.current) {
+    if (!svg && src) {
+      const div = document.createElement('div');
+      div.innerHTML = src;
+      div.style.display = 'none';
+      document.body.append(div);
+      setSvg(div);
+      setS(div.innerHTML);
+
+      return () => {
+        div.remove();
+      };
+    }
+  }, [src]); /* eslint-disable-line */
+
+  useEffect(() => {
+    if (svg) {
       const initials = {};
-      // Init guides
-
-      const guides = getGuides();
-      guides.style.display = 'block';
-      guides.style.opacity = '0';
-
-      // Init / reset scale
-
-      setInitialScale(
-        getPattern().getAttribute('patternTransform').replace('scale(', '').replace(')', '') * .4,
-      );
-
       // Init / reset colors
 
-      const shapes = getAllShapes();
+      const shapes = getAllShapes(svg);
       const shapeClassNames = {};
       shapes.forEach((shape) => {
         const c = [...shape.classList].find((className) => className.startsWith('shape-'));
         if (!shapeClassNames[c]) {
-          const oneElement = ref.current.querySelector(`.${c}`);
+          const oneElement = svg.querySelector(`.${c}`);
           shapeClassNames[c] = window.getComputedStyle(oneElement, null).getPropertyValue('fill');
         }
       });
 
       initials.shapeGroups = shapeClassNames;
+      initials.downloadable = svg.innerHTML;
 
       onInit(initials);
     }
-  }, [svg, ref, getGuides, getPattern, getAllShapes, onInit]);
+  }, [svg]); /* eslint-disable-line */
+
+  const update = () => {
+    setS(svg.innerHTML);
+    onChange(svg.innerHTML);
+  };
 
   // Guides
 
   useEffect(() => {
-    const guides = getGuides();
-    if (guides) guides.style.opacity = (showGuides) ? '' : '0';
-  }, [showGuides, getGuides]);
+    if (svg) {
+      const guides = getGuides(svg);
+      guides.style.display = (showGuides) ? 'block' : '';
+      update();
+    }
+  }, [showGuides]);
 
   // Colors
 
   useEffect(() => {
     Object.keys(shapeGroups).forEach((shapeGroupId) => {
-      const shapeElements = ref.current.querySelectorAll(`.${shapeGroupId}`);
+      const shapeElements = svg.querySelectorAll(`.${shapeGroupId}`);
       shapeElements.forEach((shapeElement) => {
         // eslint-disable-next-line no-param-reassign
         shapeElement.style.fill = shapeGroups[shapeGroupId];
       });
+      update();
     });
   }, [shapeGroups]);
 
   // Scale
 
-  useEffect(() => {
-    const pattern = getPattern();
-    if (pattern) pattern.setAttribute('patternTransform', `scale(${scale * initialScale})`);
-  }, [scale, initialScale, getPattern]);
-
-  return (svg)
-    ? <Svg ref={ref} dangerouslySetInnerHTML={{__html: svg.innerHTML}} />
+  return (s)
+    ? (
+      <Wrapper>
+        <UpdateWithoutBlink>
+          <Display
+            svg={s}
+            scale={scale * .3}
+          />
+        </UpdateWithoutBlink>
+      </Wrapper>
+    )
     : null;
 };
 
 Editable.propTypes = {
-  svg: node.isRequired,
+  src: string.isRequired,
   shapeGroups: object.isRequired,
   showGuides: bool.isRequired,
   scale: number.isRequired,
   onInit: func.isRequired,
+  onChange: func.isRequired,
 };
 
 export default Editable;

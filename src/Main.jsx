@@ -1,8 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import styled from 'styled-components';
 
-import Editor from './Editor';
+import {DataContext} from './context';
+import Layout from './Layout';
+// import Editor from './Editor';
 import Thumbnail from './Thumbnail';
+import Carrousel from './Carrousel';
 
 const Thumbnails = styled.div`
   background-color: #eee;
@@ -14,38 +17,53 @@ const Thumbnails = styled.div`
 `;
 
 const Main = () => {
-  const [data, setData] = useState([]);
-  const [editable, setEditable] = useState(null);
+  const [fullView, setFullView] = useState(null);
+  const [showFullView, setShowFullView] = useState(false);
+  const {data} = useContext(DataContext);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      fetch('/data/index.json', {
-        mode: 'no-cors',
-      }).then((result) => {
-        result.json().then(({patterns}) => {
-          setData(patterns);
-          setEditable(patterns[patterns.length - 1].id);
-        });
-      });
-    };
-    fetchData();
-  }, []);
+  const handleItemClick = (id) => {
+    const index = data.findIndex((item) => id === item.id);
+    setFullView(index);
+    setShowFullView(true);
+  };
 
-  const atad = [...data].reverse();
+  const handleHideFullView = () => {
+    setShowFullView(false);
+  };
+
+  const handleUnmountFullView = () => {
+    setTimeout(() => setFullView(null), 1000);
+  };
+
+  const modal = fullView != null
+    ? (
+      <Carrousel
+        items={data}
+        index={fullView}
+        onClose={handleHideFullView}
+      />
+    )
+    : null;
 
   return (
-    <div>
-      {editable && <Editor id={editable} />}
-      <Thumbnails>
-        {atad.map(({id}) => (
-          <Thumbnail
-            key={id}
-            id={id}
-            onClick={() => setEditable(id)}
-          />
-        ))}
-      </Thumbnails>
-    </div>
+    <Layout
+      modal={modal}
+      onUnmountModal={handleUnmountFullView}
+      showModal={showFullView}
+    >
+      <div>
+        <Thumbnails>
+          {data.map(({id, scale}) => (
+            <Thumbnail
+              key={id}
+              id={id}
+              scale={scale}
+              onClick={() => handleItemClick(id)}
+            />
+          ))}
+        </Thumbnails>
+      </div>
+    </Layout>
   );
 };
 

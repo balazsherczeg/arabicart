@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="2000" height="1000" viewBox="0 0 100% 100%" xml:space="preserve">
+	  width="601" height="1040" viewBox="0 0 100% 100%" xml:space="preserve">
 	<style>
 		.shape-1 {
 			fill: #907A58;
@@ -13,7 +13,7 @@
 		}
 		.lines {
 			fill: none;
-			stroke: #eee;
+			stroke: #fff;
 			stroke-width: 20px;
 		}
 		.guides {
@@ -23,8 +23,7 @@
 			display: none;
 		}
 	</style>
-	<defs>
-		<pattern id="pattern" width="601" height="1040" patternUnits="userSpaceOnUse" patternTransform="scale(.5)">
+		<g class="pattern">
 			<g class="shapes">
 				<rect class="shape-1" x="-16.679" y="-16.397" width="636.063" height="1086.815"/>
 				<polygon class="shape-2" points="-99.424,606.794 100.576,606.794 200.576,780 100.576,953.205 -99.423,953.204 -199.423,780 	"/>
@@ -56,7 +55,8 @@
 				<polygon points="400.577,953.205 500.577,953.205 550.577,1039.808 500.577,1126.41 400.577,1126.41 350.576,1039.808 						"/>
 				<polygon points="100.576,953.205 200.576,953.205 250.576,1039.808 200.576,1126.41 100.576,1126.41 50.575,1039.808 			"/>
 			</g>
-			
+		</g>
+
 			<g class="guides">
 					<line class="st0" x1="-49.423" y1="-172.628" x2="-749.423" y2="1039.807"/>
 					<line class="st0" x1="50.577" y1="-172.628" x2="-649.423" y2="1039.807"/>
@@ -107,8 +107,4 @@
 					<line class="st0" x1="-699.423" y1="953.204" x2="1509.577" y2="953.204"/>
 			</g>
 
-		</pattern>
-	</defs>
-	
-	<rect fill="url(#pattern)" x="0" y="0" width="100%" height="100%" stroke-width="0" /> 
 </svg>

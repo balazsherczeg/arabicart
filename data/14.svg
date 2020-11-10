@@ -1,4 +1,4 @@
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="2000" height="1000" viewBox="0 0 100% 100%">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="735.268" height="424.447" viewBox="0 0 100% 100%">
   <style>
     :root {
       --golden: #907A58;
@@ -27,9 +27,7 @@
     .line{stroke:#fff;stroke-width:20px}
     .guides{stroke-width: 2px; stroke: #ff0; opacity: .5;display: none; fill: none}
   </style>
-  <defs>
-    <pattern id="pattern" width="735.268" height="424.447" patternUnits="userSpaceOnUse" patternTransform="scale(.7)">
-      <g class="line">
+      <g class="line" id="pattern">
         <rect x="-26.814" y="-15.389" class="shape-3" width="781.765" height="470.943"/>
         <polygon class="shape-1" points="-0.001,70.763 51.776,122.542 122.508,141.494 103.558,212.224 122.509,282.955 51.778,301.906 
           -0.002,353.687 -51.779,301.906 -122.512,282.956 -103.557,212.225 -122.512,141.494 -51.78,122.542  "/>
@@ -222,7 +220,4 @@
         <line class="st5" x1="490.145" y1="212.408" x2="490.145" y2="353.873"/>
         <line class="st5" x1="490.145" y1="353.873" x2="612.762" y2="424.665"/>
       </g>
-    </pattern>
-  </defs>
-  <rect fill="url(#pattern)" width="100%" height="100%" stroke-width="0"/>
 </svg>

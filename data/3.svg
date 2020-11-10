@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="2000" height="1000" viewBox="0 0 100% 100%" xml:space="preserve">
+	 width="1000" height="1039" viewBox="0 0 100% 100%" xml:space="preserve">
 	<style>
 		.shape-1 {
 			fill: #907A58; // aranybarna
@@ -19,7 +19,7 @@
 		}
 		.lines {
 			fill: none;
-			stroke: #eee;
+			stroke: #fff;
 			stroke-width: 25px;
 		}
 		.guides {
@@ -29,8 +29,7 @@
 			display: none;
 		}
 	</style>
-	<defs>
-		<pattern id="pattern" width="1000" height="1039" patternUnits="userSpaceOnUse" patternTransform="scale(.5)">
+		<g id="pattern">
 			<g class="shapes">
 				<rect x="-80.278" y="-52.978" class="shape-1" width="1196.06" height="1159.149"/>
 				<polygon class="shape-2" points="500.059,346.556 450.059,433.158 350.059,433.158 400.059,519.761 350.058,606.363 450.059,606.363 
@@ -98,7 +97,8 @@
 				<polygon points="-99.972,346.556 0.028,173.352 100.028,346.556 	"/>
 				<polygon points="900.09,346.557 1000.09,173.352 1100.09,346.557 	"/>
 			</g>
-			
+		</g>	
+
 			<g class="guides">
 				<line class="st0" x1="100" y1="-173.206" x2="-600" y2="1039.23"/>
 				<line class="st0" x1="200" y1="-173.206" x2="-500" y2="1039.23"/>
@@ -148,9 +148,4 @@
 				<line class="st0" x1="-501.006" y1="866.025" x2="1608.69" y2="866.025"/>
 				<line class="st0" x1="-550" y1="952.627" x2="1659" y2="952.627"/>
 			</g>
-
-		</pattern>
-	</defs>
-	
-	<rect fill="url(#pattern)" x="0" y="0" width="100%" height="100%" stroke-width="0" /> 
 </svg>

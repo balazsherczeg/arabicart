@@ -26,7 +26,7 @@
   </style>
   <defs>
     <pattern id="pattern" width="949.94" height="1645.405" patternUnits="userSpaceOnUse" patternTransform="scale(1.2)">
-      <g class="line">
+      <g class="line" id="pattern">
 			<rect x="-26.754" y="-29.528" class="shape-2" width="1003.29" height="1697.369"/>
 			<polygon class="shape-1" points="350.457,1256.193 250.457,1256.193 250.457,1227.325 225.457,1212.891 200.457,1256.193 
 				225.457,1299.494 325.457,1299.495 325.457,1328.361 350.457,1342.795 375.457,1299.495 	"/>

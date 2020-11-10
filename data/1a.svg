@@ -1,5 +1,5 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-   width="2404px" height="1388px" viewBox="0 0 100% 100%" xml:space="preserve">
+   width="601" height="347" viewBox="0 0 100% 100%" xml:space="preserve">
   <style>
     .shape-1 {
       fill: #475387;
@@ -19,8 +19,6 @@
       display: none;
     }
   </style>
-  <defs>
-    <pattern id="pattern" width="601" height="347" patternUnits="userSpaceOnUse" patternTransform="scale(1)">
       <g class="shapes">
         <rect class="shape-1" x="-15.595" y="-8.793" width="630.65" height="364.105"/>
         <polygon class="shape-2" points="-49.5,260.308 -49.5,87.103 0.5,0.5 50.5,87.103 150.5,87.103 100.5,173.705 150.5,260.308 
@@ -65,9 +63,4 @@
         <line x1="-15.596" y1="173.705" x2="615.055" y2="173.705"/>
         <line x1="-15.596" y1="260.308" x2="615.055" y2="260.308"/>
       </g>
-
-    </pattern>
-  </defs>
-  
-  <rect fill="url(#pattern)" x="0" y="0" width="100%" height="100%" stroke-width="0" /> 
 </svg>

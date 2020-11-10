@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="2000" height="1000" viewBox="0 0 100% 100%" xml:space="preserve">
+	  width="900" height="1569" viewBox="0 0 100% 100%" xml:space="preserve">
 	<style>
 		.shape-1 {
 			fill: #907A58;
@@ -31,9 +31,7 @@
 			display: none;
 		}
 	</style>
-	<defs>
-		<pattern id="pattern" width="900" height="1569" patternUnits="userSpaceOnUse" patternTransform="scale(.5)">
-			<g class="line shapes">
+			<g class="line shapes" id="pattern">
 				<polygon class="line shape-1" points="705.581,438.437 455.616,438.406 505.616,525.008 455.581,611.61 330.588,395.12 455.581,178.628 505.581,265.231 455.58,351.835 705.563,351.834 830.588,135.344 730.588,135.344 680.571,48.709 930.588,48.71 1055.599,265.231 955.6,265.231 905.58,178.599 780.57,395.121 905.581,611.642 955.581,525.039 1055.581,525.039 930.588,741.531 680.572,741.53 730.572,654.927 830.581,654.942 		"/>
 				<polygon class="line shape-1" points="-194.383,438.435 -444.348,438.404 -394.348,525.006 -444.383,611.608 -569.375,395.118 -444.383,178.626 
 					-394.383,265.229 -444.384,351.833 -194.401,351.833 -69.376,135.342 -169.376,135.342 -219.393,48.708 30.624,48.708 
@@ -294,9 +292,4 @@
 				<line class="st3" x1="-548.81" y1="1347.75" x2="1560.886" y2="1347.75"/>
 				<line class="st3" x1="-597.804" y1="1261.147" x2="1611.196" y2="1261.147"/>
 			</g>
-
-		</pattern>
-	</defs>
-	
-	<rect fill="url(#pattern)" x="0" y="0" width="100%" height="100%" stroke-width="0" /> 
 </svg>

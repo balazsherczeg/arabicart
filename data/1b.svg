@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="2404px" height="1388px" viewBox="0 0 100% 100%" xml:space="preserve">
+	 width="601" height="347" viewBox="0 0 100% 100%" xml:space="preserve">
 	<style>
 		.shape-1 {
 			fill: #907A58;
@@ -10,7 +10,7 @@
 		}
 		.lines {
 			fill: none;
-			stroke: #eee;
+			stroke: #fff;
 			stroke-width: 20px;
 		}
 		.guides {
@@ -20,8 +20,6 @@
 			display: none;
 		}
 	</style>
-	<defs>
-		<pattern id="pattern" width="601" height="347" patternUnits="userSpaceOnUse" patternTransform="scale(1)">
 			<g class="shapes">
 				<rect class="shape-1" x="-15.595" y="-8.793" width="630.65" height="364.105"/>
 				<path class="shape-2" d="M0.5,346.91c29.891-17.291,49.998-49.586,49.997-86.6c29.92,17.241,67.96,18.521,100.014,0.014
@@ -79,9 +77,4 @@
 				<line x1="-15.596" y1="173.705" x2="615.055" y2="173.705"/>
 				<line x1="-15.596" y1="260.308" x2="615.055" y2="260.308"/>
 			</g>
-
-		</pattern>
-	</defs>
-	
-	<rect fill="url(#pattern)" x="0" y="0" width="100%" height="100%" stroke-width="0" /> 
 </svg>

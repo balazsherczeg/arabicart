@@ -34,6 +34,7 @@ module.exports = {
           'react/no-access-state-in-setstate': 0,
           'react/no-array-index-key': 0,
           'react/state-in-constructor': 0,
+          'arrow-body-style': 0
         }
       }
     }),

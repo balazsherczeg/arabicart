@@ -1,7 +1,9 @@
-import React, {useState, useEffect} from 'react';
-import {func, string} from 'prop-types';
+import React, {useState, useEffect, useContext} from 'react';
+import {func, number, string} from 'prop-types';
 import styled from 'styled-components';
 import {useInView} from 'react-intersection-observer';
+
+import {DataContext} from './context';
 
 const Entry = styled.article`
   @media only screen and (max-width: 599px) {
@@ -31,7 +33,6 @@ const Entry = styled.article`
 `;
 
 const Frame = styled.div`
-  background-size: cover;
   border: .25rem #fff solid;
   box-sizing: border-box;
   height: 100%;
@@ -59,24 +60,20 @@ const Caption = styled.div`
 
 const Thumbnail = ({
   id,
+  scale,
   onClick,
 }) => {
   const [src, setSrc] = useState(null);
+  const {getSvg} = useContext(DataContext);
   const {ref, inView} = useInView({
     triggerOnce: true,
   });
 
   useEffect(() => {
     if (inView && !src) {
-      fetch(`/data/${id}.svg`).then(
-        (result) => {
-          result.text().then(
-            (svg) => {
-              setSrc(svg);
-            },
-          );
-        },
-      );
+      getSvg(id).then((svg) => {
+        setSrc(svg);
+      });
     }
   }, [inView]); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -90,6 +87,7 @@ const Thumbnail = ({
       <Frame
         style={{
           backgroundImage: `url('data:image/svg+xml;utf8,${encodeURIComponent(src)}')`,
+          backgroundSize: `${scale * 100}%`,
         }}
       />
       <Caption>{id}</Caption>
@@ -99,7 +97,12 @@ const Thumbnail = ({
 
 Thumbnail.propTypes = {
   id: string.isRequired,
+  scale: number,
   onClick: func.isRequired,
+};
+
+Thumbnail.defaultProps = {
+  scale: 0.4,
 };
 
 export default Thumbnail;
