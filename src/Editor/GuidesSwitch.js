@@ -1,13 +1,19 @@
 import React from 'react';
 import {bool, func} from 'prop-types';
 
+import Button from './Button';
+
 const GuidesSwitch = ({
   onClick,
   value,
 }) => (
-  <button onClick={onClick} type="button">
+  <Button
+    onClick={onClick}
+    width="11em"
+    primary={false}
+  >
     {value ? 'Hide guides' : 'Show Guides'}
-  </button>
+  </Button>
 );
 
 GuidesSwitch.propTypes = {

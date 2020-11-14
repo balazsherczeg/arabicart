@@ -14,18 +14,21 @@ const getGuides = (svg) => svg.querySelector('.guides');
 
 const getAllShapes = (svg) => svg.querySelectorAll('[class*="shape-"]');
 
+const getSvg = (svg) => svg.querySelector('svg');
+
 const Editable = ({
   src,
   shapeGroups,
   showGuides,
   scale,
+  initialScale: shouldScale,
   onInit,
   onChange,
 }) => {
   const [svg, setSvg] = useState(null);
   const [s, setS] = useState(src);
 
-  useEffect(() => {
+  useEffect(() => { /* eslint-disable-line consistent-return */
     if (!svg && src) {
       const div = document.createElement('div');
       div.innerHTML = src;
@@ -77,6 +80,16 @@ const Editable = ({
     }
   }, [showGuides]);
 
+  // Update guide width, if scale changes, it should always be 1px on screen
+
+  useEffect(() => {
+    if (svg) {
+      const guides = getGuides(svg);
+      guides.style.strokeWidth = 1 / (scale * shouldScale);
+      setS(svg.innerHTML);
+    }
+  }, [svg, scale, shouldScale]);
+
   // Colors
 
   useEffect(() => {
@@ -98,7 +111,7 @@ const Editable = ({
         <UpdateWithoutBlink>
           <Display
             svg={s}
-            scale={scale * .3}
+            size={scale * shouldScale * getSvg(svg).getAttribute("width")}
           />
         </UpdateWithoutBlink>
       </Wrapper>
@@ -107,12 +120,13 @@ const Editable = ({
 };
 
 Editable.propTypes = {
-  src: string.isRequired,
+  initialScale: number.isRequired,
+  onChange: func.isRequired,
+  onInit: func.isRequired,
+  scale: number.isRequired,
   shapeGroups: object.isRequired,
   showGuides: bool.isRequired,
-  scale: number.isRequired,
-  onInit: func.isRequired,
-  onChange: func.isRequired,
+  src: string.isRequired,
 };
 
 export default Editable;

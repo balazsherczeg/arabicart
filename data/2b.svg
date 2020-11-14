@@ -17,9 +17,7 @@
 			stroke-width: 20px;
 		}
 		.guides {
-			stroke-width: 2px;
-			stroke: #ffff00;
-			opacity: .5;
+			stroke: #4FFF4F;
 			display: none;
 		}
 	</style>

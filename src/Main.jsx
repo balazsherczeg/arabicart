@@ -11,7 +11,7 @@ const Thumbnails = styled.div`
   background-color: #eee;
   display: flex;
   flex-wrap: wrap;
-  padding: 0 1rem 2rem;
+  padding: 1.5rem 1.5rem 2rem;
   justify-content: space-between;
   position: relative;
 `;
@@ -53,11 +53,12 @@ const Main = () => {
     >
       <div>
         <Thumbnails>
-          {data.map(({id, scale}) => (
+          {data.map(({id, scale, width = 300}) => (
             <Thumbnail
               key={id}
               id={id}
               scale={scale}
+              width={width}
               onClick={() => handleItemClick(id)}
             />
           ))}

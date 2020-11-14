@@ -25,7 +25,7 @@
     .shape-6{fill:var(--golden)}
     .shape-7{fill:var(--sand)}
     .line{stroke:#fff;stroke-width:5px}
-    .guides{stroke-width: 2px; stroke: #ff0; opacity: .5;display: none; fill: none}
+    .guides{ stroke: #4FFF4F; display: none; fill: none}
   </style>
       <g class="line" id="pattern">
 <rect x="0.001" y="-20.004" class="shape-1" width="173.245" height="139.773"/>

@@ -40,7 +40,8 @@ module.exports = {
     }),
     react({
       html: {
-        title: 'artarabe'
+        title: 'The Elements of Arabic Art',
+        
       }
     }),
     jest(),

@@ -3,6 +3,10 @@ import {bool, node, func} from 'prop-types';
 import styled from 'styled-components';
 import {CSSTransition} from 'react-transition-group';
 
+const Container = styled.div`
+  padding-top: 96px;
+`;
+
 const Modal = styled.div`
   background-color: white;
   bottom: 0;
@@ -14,6 +18,7 @@ const Modal = styled.div`
   width: 100vw;
   transition: .3s;
   transform: translate3d(0, 100vh, 0);
+  z-index: 20;
 
   &.VMG__Modal--enter {
     opacity: 0;
@@ -39,7 +44,7 @@ const Layout = ({
   onUnmountModal,
   showModal,
 }) => (
-  <>
+  <Container>
     {children}
 
     <CSSTransition
@@ -54,7 +59,7 @@ const Layout = ({
         {modal}
       </Modal>
     </CSSTransition>
-  </>
+  </Container>
 );
 
 Layout.propTypes = {

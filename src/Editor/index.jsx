@@ -1,5 +1,5 @@
-import React, {useEffect, useState, useCallback} from 'react';
-import {string} from 'prop-types';
+import React, {useState, useCallback} from 'react';
+import {number, shape, string} from 'prop-types';
 import styled from 'styled-components';
 
 import Editable from './Editable';
@@ -7,6 +7,7 @@ import ColorInput from './ColorInput';
 import ScaleInput from './ScaleInput';
 import GuidesSwitch from './GuidesSwitch';
 import Download from './Download';
+import Button from './Button';
 
 const Wrapper = styled.div`
   height: 100%;
@@ -17,36 +18,43 @@ const Wrapper = styled.div`
 `;
 
 const ButtonBar = styled.div`
-  position: absolute;
-  z-index: 1000;
+  align-items: center;
   bottom: 0;
-  display: flex;
-  padding: .5rem;
-
-  & > * {
-    margin-right: .25rem;
-    margin-left: .25rem;
-  }
+  /*display: flex;*/
+  height: 3rem;
+  padding: 0 12px;
+  position: absolute;
+  z-index: 99;
 `;
 
-// const Svg = styled.div`
-//   height: 100%;
-//   width: 100%;
-// 
-//   svg {
-//     height: 100%;
-//     width: 100%;
-// 
-//     .guides {
-//       transition: .3s opacity;
-//     }
-//   }
-// `;
+const DownloadPositioned = styled(Download)`
+  position: absolute;
+  top: 12px;
+  right: 12px;
+`;
+
+const Customize = styled(Button)`
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+`;
+
+const Customizer = styled.div`
+  display: flex;
+  position: absolute;
+  bottom: 12px;
+  right: 100px;
+  width: 100px;
+`;
 
 const Editor = ({
-  id,
+  item: {
+    id,
+    scale: initialScale,
+  },
   src,
 }) => {
+  const [editable, setEditable] = useState(false);
   const [showGuides, setShowGuides] = useState(false);
   const [scale, setScale] = useState(1);
   const [shapeGroups, setShapeGroups] = useState({});
@@ -77,6 +85,10 @@ const Editor = ({
     setScale(value);
   };
 
+  const toggleEditable = () => {
+    setEditable(!editable);
+  };
+
   return (
     <Wrapper>
       <Editable
@@ -86,34 +98,50 @@ const Editor = ({
         showGuides={showGuides}
         src={src}
         onChange={handleChange}
+        initialScale={initialScale}
       />
 
       <ButtonBar>
         <GuidesSwitch onClick={toggleGuides} value={showGuides} />
 
-        {Object.keys(shapeGroups).map((shapeGroupId) => (
+
+        <ScaleInput value={scale} onChange={changeScale} />
+
+      </ButtonBar>
+
+      {editable && Object.keys(shapeGroups).map((shapeGroupId) => (
+        <Customizer>
           <ColorInput
             value={shapeGroups[shapeGroupId]}
             onChange={changeColor}
-            key={`${shapeGroupId}`}
+            key={shapeGroupId}
             shapeGroupId={shapeGroupId}
           />
-        ))}
+        </Customizer>
+      ))}
 
-        <ScaleInput value={scale} onChange={changeScale} />
-        {downloadable && (
-          <Download
-            downloadable={downloadable}
-            id={id}
-          />
-        )}
-      </ButtonBar>
+      {downloadable && (
+        <DownloadPositioned
+          downloadable={downloadable}
+          id={id}
+        />
+      )}
+
+      <Customize
+        primary={false}
+        onClick={toggleEditable}
+      >
+        Customize
+      </Customize>
     </Wrapper>
   );
 };
 
 Editor.propTypes = {
-  id: string.isRequired,
+  item: shape({
+    id: string.isRequired,
+    scale: number.isRequired,
+  }).isRequired,
   src: string.isRequired,
 };
 

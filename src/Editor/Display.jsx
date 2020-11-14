@@ -8,19 +8,19 @@ const SvgContainer = styled.div`
 `;
 
 const Display = ({
-  scale,
+  size,
   svg,
 }) => (
   <SvgContainer
     style={{
       backgroundImage: `url('data:image/svg+xml;utf8,${encodeURIComponent(svg)}')`,
-      backgroundSize: `${scale * 100}%`,
+      backgroundSize: `${size}px`,
     }}
   />
 );
 
 Display.propTypes = {
-  scale: number.isRequired,
+  size: number.isRequired,
   svg: string.isRequired,
 };
 

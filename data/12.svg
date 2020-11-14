@@ -20,7 +20,7 @@
     .shape-1{fill:var(--darkBlue)}
     .shape-2{fill:var(--golden)}
     .line{stroke:#fff;stroke-width:13px}
-    .guides{stroke-width: 2px; fill: none; stroke: #ff0; opacity: .5;display: none;}
+    .guides{ fill: none; stroke: #4FFF4F; display: none;}
   </style>
   <defs>
     <pattern id="pattern" width="342.43" height="197.7" patternUnits="userSpaceOnUse" patternTransform="scale(1.2)">

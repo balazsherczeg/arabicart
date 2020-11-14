@@ -7,18 +7,18 @@ import NextButton from './NextButton';
 import CloseButton from './CloseButton';
 
 const CloseButtonPositioned = styled(CloseButton)`
-  top: 20px;
-  left: 20px;
+  top: 0px;
+  left: 0px;
 `;
 
 const PrevButtonPositioned = styled(PrevButton)`
-  left: 20px;
+  left: .5rem;
   top: 50vh;
   margin-top: -24px;
 `;
 
 const NextButtonPositioned = styled(NextButton)`
-  right: 20px;
+  right: .5rem;
   top: 50vh;
   margin-top: -24px;
 `;

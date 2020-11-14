@@ -13,11 +13,6 @@ const Button = styled.button`
   position: absolute;
   width: 48px;
   z-index: 100;
-  opacity: .5;
-
-  &:hover {
-    opacity: 1;
-  }
 `;
 
 export default Button;

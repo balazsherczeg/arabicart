@@ -7,6 +7,7 @@ import Main from './Main';
 import Footer from './Footer';
 import '../assets/styles/reset.css';
 import '../assets/styles/fonts.css';
+import '../assets/styles/layout.css';
 
 const App = () => (
   <Loader>

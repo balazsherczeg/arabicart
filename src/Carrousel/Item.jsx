@@ -27,6 +27,7 @@ const Inner = styled.div`
 
 const Item = ({
   index,
+  item,
   item: {
     id,
   },
@@ -51,7 +52,7 @@ const Item = ({
       <Inner>
         <Editor
           src={src}
-          id={id}
+          item={item}
         />
       </Inner>
     </Main>

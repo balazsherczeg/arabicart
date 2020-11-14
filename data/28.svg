@@ -1,4 +1,4 @@
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="608.74" height="608.77" viewBox="0 0 100% 100%">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="608.74" height="608.77">
   <style>
     :root {
       --golden: #907A58;
@@ -25,7 +25,7 @@
     .shape-6{fill:var(--golden)}
     .shape-7{fill:var(--blue3)}
     .line{stroke:#fff;stroke-width:13px; stroke-miterlimit: 1}
-    .guides{stroke-width: 2px; stroke: #ff0; opacity: .5;display: none; fill: none}
+    .guides{ stroke: #4FFF4F; display: none; fill: none}
   </style>
       <g class="line" id="pattern">
   <rect x="-1.823" y="-0.107" class="shape-1" width="610" height="600"/>

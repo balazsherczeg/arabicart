@@ -22,7 +22,7 @@
     .shape-3{fill:var(--teal)}
     .shape-4{fill:var(--smaragd)}
     .line{stroke:#fff;stroke-width:10px}
-    .guides{stroke-width: 2px; stroke: #ff0; opacity: .5;display: none;}
+    .guides{ stroke: #4FFF4F; display: none;}
   </style>
   <defs>
     <pattern id="pattern" width="949.94" height="1645.405" patternUnits="userSpaceOnUse" patternTransform="scale(1.2)">

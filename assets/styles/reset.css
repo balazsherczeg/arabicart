@@ -48,4 +48,5 @@ table {
 }
 button {
   outline: none;
+  margin: 0;
 }

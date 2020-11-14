@@ -10,11 +10,13 @@ const Cover = styled.div`
   left: 0;
   right: 0;
   position: absolute;
+  z-index: 100;
 `;
 
 const Modal = styled.div`
   position: absolute;
   bottom: 36px;
+  z-index: 101;
 `;
 
 const ColorPicker = ({

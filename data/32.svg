@@ -10,7 +10,7 @@
     .shape-7{fill:var(--blue3)}
     .shape-8{fill:var(--yellow)}
     .line{stroke:#fff;stroke-width:10px}
-    .guides{stroke-width: 2px; stroke: #ff0; opacity: .5;display: none; fill: none}
+    .guides{ stroke: #4FFF4F; display: none; fill: none}
   </style>
   <g id="pattern" class="line">
     <path class="shape-1" d="M-61-35h498.1v720.5H-61z"/>

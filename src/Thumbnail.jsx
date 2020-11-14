@@ -6,23 +6,9 @@ import {useInView} from 'react-intersection-observer';
 import {DataContext} from './context';
 
 const Entry = styled.article`
-  @media only screen and (max-width: 599px) {
-    --columns: 1;
-  }
-  @media only screen and (min-width: 600px) {
-    --columns: 2;
-  }
-  @media only screen and (min-width: 800px) {
-    --columns: 3;
-  }
-  @media only screen and (min-width: 1200px) {
-    --columns: 4;
-  }
+  --columnWidth: calc(100% / var(--columns) - ((var(--columns) - 1) * var(--gutter)) / var(--columns));
+  --aspectRatio: calc(1 / 1.62);
 
-  --columnWidth: calc(100% / var(--columns) - .5rem);
-  --aspectRatio: calc(2 / 3);
-
-  border: 1px #ddd solid;
   box-sizing: border-box;
   display: block;
   flex-basis: var(--columnWidth);
@@ -33,7 +19,7 @@ const Entry = styled.article`
 `;
 
 const Frame = styled.div`
-  border: .25rem #fff solid;
+  border: .5rem #fff solid;
   box-sizing: border-box;
   height: 100%;
   left: 0;
@@ -62,6 +48,7 @@ const Thumbnail = ({
   id,
   scale,
   onClick,
+  width,
 }) => {
   const [src, setSrc] = useState(null);
   const {getSvg} = useContext(DataContext);
@@ -87,7 +74,7 @@ const Thumbnail = ({
       <Frame
         style={{
           backgroundImage: `url('data:image/svg+xml;utf8,${encodeURIComponent(src)}')`,
-          backgroundSize: `${scale * 100}%`,
+          backgroundSize: `${scale * width}px`,
         }}
       />
       <Caption>{id}</Caption>
@@ -99,6 +86,7 @@ Thumbnail.propTypes = {
   id: string.isRequired,
   scale: number,
   onClick: func.isRequired,
+  width: number.isRequired,
 };
 
 Thumbnail.defaultProps = {

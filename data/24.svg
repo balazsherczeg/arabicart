@@ -26,7 +26,7 @@
     .shape-7{fill:var(--rust)}
     .shape-8{fill:var(--smaragd)}
     .line{stroke:#fff;stroke-width:9px}
-    .guides{stroke-width: 2px; stroke: #ff0; opacity: .5;display: none; fill: none}
+    .guides{ stroke: #4FFF4F; display: none; fill: none}
   </style>
       <g class="line" id="pattern">
   <rect x="-9.832" y="-9.868" class="shape-1" width="324.175" height="547.113"/>

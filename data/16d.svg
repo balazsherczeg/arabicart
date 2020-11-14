@@ -26,7 +26,7 @@
     .shape-7{fill:var(--smaragd)}
     .shape-8{fill:var(--blueGray)}
     .line{stroke:#fff;stroke-width:10px}
-    .guides{stroke-width: 2px; stroke: #ff0; opacity: .5;display: none;fill:none;}
+    .guides{ stroke: #4FFF4F; display: none;fill:none;}
   </style>
       <g class="line" id="pattern">
         <polygon class="shape-1" points="267.53,138.748 230.353,128.786 203.138,175.922 230.352,223.062 267.528,213.101 257.567,175.924     
