@@ -15,7 +15,7 @@ const Cover = styled.div`
 
 const Modal = styled.div`
   position: absolute;
-  bottom: 36px;
+  bottom: 88px;
   z-index: 101;
 `;
 
@@ -40,7 +40,7 @@ const ColorPicker = ({
         onClick={onClose}
       />
       <Modal
-        style={{left}}
+        style={{left: left - 225}}
       >
         <ChromePicker
           color={color}

@@ -7,7 +7,7 @@ const ButtonStyled = styled.button`
   border: 2px solid;
   border-color: ${({primary}) => (primary ? 'var(--accentColor)' : '#fff')};
   border-radius: 12px;
-  color: ${({primary}) => (!primary ? '#999' : '#fff')};
+  color: ${({primary}) => (!primary ? '#000c' : '#fff')};
   cursor: pointer;
   height: 24px;
   letter-spacing: .05em;
@@ -17,6 +17,12 @@ const ButtonStyled = styled.button`
   width: ${({width}) => width};
   font-family: ${({primary}) => (primary ? 'var(--sansMedium)' : 'var(--sansSemiBold)')};
   font-size: 12px;
+
+  &:hover {
+    background: ${({primary}) => (primary ? 'var(--accentColor)' : '#ccc')};
+    border-color: ${({primary}) => (primary ? 'var(--accentColor)' : '#ccc')};
+    color: ${({primary}) => (!primary ? '#fff' : '#fff')};
+  }
 `;
 
 const Button = ({

@@ -6,12 +6,14 @@ const round = (float) => Math.round((float) * 100) / 100;
 
 const Wrapper = styled.div`
   display: flex;
-  font-family: var(--sans);
+  font-family: var(--sansSemiBold);
+  color: #000c;
 `;
 
 const Percent = styled.span`
   width: 4.5ch;
   text-align: center;
+  font-size: 14px;
 `;
 
 const Button = styled.button`
@@ -19,6 +21,7 @@ const Button = styled.button`
   border-radius: 100%;
   border: none;
   cursor: pointer;
+  fill: #000c;
   font-family: var(--sans);
   font-size: 1.1rem;
   height: 1.5rem;
@@ -30,14 +33,16 @@ const Button = styled.button`
     background: #ccc;
     fill: #fff;
   }
+
 `;
 
 const ScaleInput = ({
   value,
   onChange,
+  minValue,
 }) => {
   const decrease = () => {
-    if (+value > 0.1) {
+    if (+value > minValue) {
       onChange(round(+value - .1));
     }
   };
@@ -60,6 +65,7 @@ const ScaleInput = ({
 ScaleInput.propTypes = {
   value: number.isRequired,
   onChange: func.isRequired,
+  minValue: number.isRequired,
 };
 
 export default ScaleInput;

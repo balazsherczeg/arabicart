@@ -19,6 +19,7 @@
     "react-dom": "^16.14.0",
     "react-hot-loader": "^4.13.0",
     "react-intersection-observer": "^8.30.1",
+    "react-router-dom": "^5.2.0",
     "react-transition-group": "^4.4.1",
     "styled-components": "^5.2.1"
   },

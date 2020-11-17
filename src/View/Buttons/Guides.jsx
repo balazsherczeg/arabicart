@@ -1,13 +1,15 @@
 import React from 'react';
-import {bool, func} from 'prop-types';
+import {bool, func, string} from 'prop-types';
 
 import Button from './Button';
 
 const GuidesSwitch = ({
+  className,
   onClick,
   value,
 }) => (
   <Button
+    className={className}
     onClick={onClick}
     width="11em"
     primary={false}
@@ -17,6 +19,7 @@ const GuidesSwitch = ({
 );
 
 GuidesSwitch.propTypes = {
+  className: string.isRequired,
   onClick: func.isRequired,
   value: bool.isRequired,
 };

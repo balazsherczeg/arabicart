@@ -21,7 +21,7 @@
     .shape-2{fill:var(--teal)}
     .shape-3{fill:var(--darkBlue)}
     .shape-4{fill:var(--grayGreen)}
-    .line{stroke:#fff;stroke-width:5px}
+    .line{stroke:#fff;stroke-width:7px}
     .guides{ stroke: #4FFF4F; display: none; fill: none}
   </style>
   <g id="pattern" class="line">

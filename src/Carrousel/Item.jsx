@@ -1,9 +1,8 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React from 'react';
 import {shape, string, number} from 'prop-types';
 import styled from 'styled-components';
 
-import {DataContext} from '../context';
-import Editor from '../Editor';
+import Display from '../View/Display';
 
 const getOffset = (index) => `${index * 100}vw`;
 
@@ -27,22 +26,9 @@ const Inner = styled.div`
 
 const Item = ({
   index,
+  src,
   item,
-  item: {
-    id,
-  },
 }) => {
-  const [src, setSrc] = useState(null);
-  const {getSvg} = useContext(DataContext);
-
-  useEffect(() => {
-    if (!src) {
-      getSvg(id).then((svg) => {
-        setSrc(svg);
-      });
-    }
-  }, [src, id]); /* eslint-disable-line */
-
   return (
     <Main
       style={{
@@ -50,8 +36,7 @@ const Item = ({
       }}
     >
       <Inner>
-        <Editor
-          src={src}
+        <Display
           item={item}
         />
       </Inner>
@@ -61,9 +46,6 @@ const Item = ({
 
 Item.propTypes = {
   index: number.isRequired,
-  item: shape({
-    id: string.isRequired,
-  }).isRequired,
 };
 
 export default Item;

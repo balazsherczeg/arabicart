@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Navigation from './Navigation';
 import useScroll from './hooks/useScroll';
 
 const Wrapper = styled.header`
@@ -52,6 +53,12 @@ const Author = styled.span`
   opacity: 0.8;
 `;
 
+const NavigationContainer = styled.div`
+  position: absolute;
+  right: 20px;
+  bottom: 24px;
+`;
+
 const getTitleMove = (scrollTop) => {
   const maxScroll = 300;
   const move = 10;
@@ -91,6 +98,10 @@ const Header = () => {
             <b>Arabic Art</b>
           </Title>
         </Scaler>
+
+        <NavigationContainer style={{transform: `translate3d(0, ${titleMove}px, 0)`}}>
+          <Navigation />
+        </NavigationContainer>
       </Inner>
     </Wrapper>
   );

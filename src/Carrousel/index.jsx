@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import Item from './Item';
 import Buttons from './Buttons';
+import Control from '../View/Control';
 
 const Wrapper = styled.div`
   background: rgba(255, 255, 255, .9);
@@ -16,7 +17,7 @@ const Wrapper = styled.div`
 const Main = styled.div`
   position: absolute;
   height: 100vh;
-  transition: transform .5s;
+  transition: transform 1s;
 `;
 
 const Carrousel = ({
@@ -48,13 +49,11 @@ const Carrousel = ({
     handleClick(index - 1);
   };
 
-  console.log(items, index);
-
   const firstFrame = index === 0;
   const lastFrame = index === items.length - 1;
 
   return (
-    <Wrapper className="VMG__Carrousel__wrapper">
+    <Wrapper>
       <Buttons
         onPrev={handlePrevClick}
         onNext={handleNextClick}
@@ -62,17 +61,21 @@ const Carrousel = ({
         showPrev={!firstFrame}
         showNext={!lastFrame}
       />
-      <Main
-        style={getCarrouselStyle()}
+      <Control
+        item={items[index]}
       >
-        {renderables.map((renderableIndex) => (
-          <Item
-            item={items[renderableIndex]}
-            index={renderableIndex}
-            key={renderableIndex}
-          />
-        ))}
-      </Main>
+        <Main
+          style={getCarrouselStyle()}
+        >
+          {renderables.map((renderableIndex) => (
+            <Item
+              item={items[renderableIndex]}
+              index={renderableIndex}
+              key={renderableIndex}
+            />
+          ))}
+        </Main>
+      </Control>
     </Wrapper>
   );
 };

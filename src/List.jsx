@@ -1,9 +1,8 @@
-import React, {useContext, useState} from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
+import usePatterns from './hooks/usePatterns';
 
-import {DataContext} from './context';
 import Layout from './Layout';
-// import Editor from './Editor';
 import Thumbnail from './Thumbnail';
 import Carrousel from './Carrousel';
 
@@ -16,13 +15,13 @@ const Thumbnails = styled.div`
   position: relative;
 `;
 
-const Main = () => {
+const List = () => {
   const [fullView, setFullView] = useState(null);
   const [showFullView, setShowFullView] = useState(false);
-  const {data} = useContext(DataContext);
+  const patterns = usePatterns();
 
   const handleItemClick = (id) => {
-    const index = data.findIndex((item) => id === item.id);
+    const index = patterns.findIndex((item) => id === item.id);
     setFullView(index);
     setShowFullView(true);
   };
@@ -38,7 +37,7 @@ const Main = () => {
   const modal = fullView != null
     ? (
       <Carrousel
-        items={data}
+        items={patterns}
         index={fullView}
         onClose={handleHideFullView}
       />
@@ -53,7 +52,7 @@ const Main = () => {
     >
       <div>
         <Thumbnails>
-          {data.map(({id, scale, width = 300}) => (
+          {patterns.map(({id, scale, width = 300}) => (
             <Thumbnail
               key={id}
               id={id}
@@ -68,4 +67,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default List;

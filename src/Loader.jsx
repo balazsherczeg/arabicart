@@ -8,19 +8,21 @@ const svgs = {};
 const Loader = ({
   children,
 }) => {
-  const [data, setData] = useState([]);
+  const [allPatterns, setAllPatterns] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      fetch('/data/index.json', {
-        mode: 'no-cors',
-      }).then((result) => {
-        result.json().then(({patterns}) => {
-          setData([...patterns].reverse());
-        });
+    fetch('/data/index.json', {
+      mode: 'no-cors',
+    }).then((result) => {
+      result.json().then(({
+        patterns,
+        categories: loadedCategories,
+      }) => {
+        setAllPatterns(patterns);
+        setCategories(loadedCategories);
       });
-    };
-    fetchData();
+    });
   }, []);
 
   const getSvg = useCallback((id) => {
@@ -43,7 +45,8 @@ const Loader = ({
   return (
     <DataContext.Provider
       value={{
-        data,
+        allPatterns,
+        categories,
         getSvg,
       }}
     >

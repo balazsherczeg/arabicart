@@ -13,6 +13,7 @@ module.exports = {
         rules: {
           'arrow-parens': ['error', 'always'],
           'babel/object-curly-spacing': [ 'error', 'never' ],
+          'babel/no-unused-expressions': ['error', { 'allowShortCircuit': true, 'allowTernary': true }],
           'camelcase': ['error', {allow: ['UNSAFE_componentWillReceiveProps']}],
           'import/no-extraneous-dependencies': [0],
           'import/no-unresolved': 0,
