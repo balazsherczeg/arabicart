@@ -285,6 +285,12 @@
       "scale": 0.5,
       "width": 180,
       "category": 2
+    },
+    {
+      "id": "45",
+      "scale": 0.25,
+      "width": 481,
+      "category": 2
     }
   ]
 }
