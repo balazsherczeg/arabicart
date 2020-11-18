@@ -18,6 +18,12 @@ const Wrapper = styled.footer`
     color: #475387;
     text-decoration: none;
   }
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, var(--columnWidth));
+  grid-template-rows: auto;
+  grid-gap: var(--gutter);
+  grid-template-areas: var(--footerLayout);
 `;
 
 const Column = styled.div`
@@ -34,6 +40,18 @@ const Column = styled.div`
   i {
     font-family: var(--serifItalic);
   }
+
+  &.bio-1 {
+    grid-area: slot-1;
+  }
+
+  &.bio-2 {
+    grid-area: slot-2;
+  }
+
+  &.colophon {
+    grid-area: slot-3;
+  }
 `;
 
 const LicenceIcon = styled.img`
@@ -44,7 +62,7 @@ const LicenceIcon = styled.img`
 /* eslint-disable */
 const Footer = () => (
   <Wrapper>
-    <Column>
+    <Column className="bio-1">
       <h2>Jules Bourgoin</h2>
       <p>
         was a researcher of Islamic ornamental art. An author of several books on the theory of ornaments,
@@ -54,7 +72,7 @@ const Footer = () => (
       </p>
     </Column>
 
-    <Column>
+    <Column className="bio-2">
       <h2>Balázs Herczeg</h2>
       <p>
         is designer, and these vector drawings are a kind of book report: the story of reading and
@@ -62,7 +80,7 @@ const Footer = () => (
       </p>
     </Column>
 
-    <Column>
+    <Column className="colophon">
       <h2>Colophon</h2>
       <p>
         Type set in <a href="https://fonts.google.com/specimen/Montserrat">Montserrat</a> and <a href="https://fontlibrary.org/en/font/libre-bodoni">Libre Bodoni</a>.

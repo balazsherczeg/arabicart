@@ -6,16 +6,13 @@ import {useInView} from 'react-intersection-observer';
 import {DataContext} from './context';
 
 const Entry = styled.article`
-  --columnWidth: calc(100% / var(--columns) - ((var(--columns) - 1) * var(--gutter)) / var(--columns));
   --aspectRatio: calc(1 / 1.62);
 
+  background-color: #475387;
   box-sizing: border-box;
   display: block;
-  flex-basis: var(--columnWidth);
-  margin-bottom: 1rem;
-  padding-bottom: calc(var(--columnWidth) * var(--aspectRatio));
+  padding-bottom: calc(100% * var(--aspectRatio));
   position: relative;
-  background-color: #475387;
 `;
 
 const Frame = styled.div`

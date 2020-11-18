@@ -5,6 +5,10 @@ import {DataContext} from './context';
 
 const svgs = {};
 
+// console.log(process.argv[2]);
+
+const DATA_URL = 'https://balazsherczeg.github.io/arabicart/';
+
 const Loader = ({
   children,
 }) => {
@@ -12,9 +16,7 @@ const Loader = ({
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch('/data/index.json', {
-      mode: 'no-cors',
-    }).then((result) => {
+    fetch(`${DATA_URL}index.json`).then((result) => {
       result.json().then(({
         patterns,
         categories: loadedCategories,
@@ -30,7 +32,7 @@ const Loader = ({
       return Promise.resolve(svgs[id]);
     }
 
-    return fetch(`/data/${id}.svg`).then(
+    return fetch(`${DATA_URL}${id}.svg`).then(
       (result) => (
         result.text().then(
           (svg) => {

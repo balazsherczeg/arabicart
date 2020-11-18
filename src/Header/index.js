@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import Navigation from './Navigation';
-import useScroll from './hooks/useScroll';
+
+import Navigation from '../Navigation';
+import Logo from './Logo';
+import useScroll from '../hooks/useScroll';
 
 const Wrapper = styled.header`
   background: #fff;
@@ -15,7 +17,7 @@ const Wrapper = styled.header`
 
 const Inner = styled.div`
   position: relative;
-  height: 100%;
+  height: 96px;
 `;
 
 const Title = styled.h1`
@@ -39,6 +41,16 @@ const Scaler = styled.div`
    position: absolute;
    bottom: 24px;
    left: 20px;
+   display: flex;
+`;
+
+const LogoContainer = styled.div`
+  width: 48px;
+  height: 48px;
+`;
+
+const TextContainer = styled.div`
+  padding-left: 8px;
 `;
 
 const Author = styled.span`
@@ -59,22 +71,27 @@ const NavigationContainer = styled.div`
   bottom: 24px;
 `;
 
+const MAX_SCROLL = 500;
+
 const getTitleMove = (scrollTop) => {
-  const maxScroll = 300;
   const move = 10;
-  return move * Math.min(scrollTop, maxScroll) / maxScroll;
+  return move * Math.min(scrollTop, MAX_SCROLL) / MAX_SCROLL;
 };
 
 const getTitleScale = (scrollTop) => {
-  const maxScroll = 500;
   const minSize = 0.7;
-  return 1 - (Math.min((scrollTop / maxScroll), 1 - minSize));
+  const scale = 1 - (Math.min(scrollTop / MAX_SCROLL, 1) * (1 - minSize));
+  return scale;
 };
 
 const getWrapperPosition = (scrollTop) => {
-  const maxScroll = 250;
   const move = 32;
-  return move * Math.min(scrollTop, maxScroll) / maxScroll;
+  return move * Math.min(scrollTop, MAX_SCROLL) / MAX_SCROLL;
+};
+
+const getRotation = (scrollTop) => {
+  const move = 180;
+  return move * Math.min(scrollTop, MAX_SCROLL) / MAX_SCROLL;
 };
 
 const Header = () => {
@@ -83,6 +100,7 @@ const Header = () => {
   const titleMove = getTitleMove(scrollTop);
   const titleScale = getTitleScale(scrollTop);
   const wrapperPosition = getWrapperPosition(scrollTop);
+  const rotation = getRotation(scrollTop);
 
   return (
     <Wrapper style={{transform: `translate3d(0, -${wrapperPosition}px, 0)`}}>
@@ -92,11 +110,17 @@ const Header = () => {
             transform: `scale3d(${titleScale}, ${titleScale}, 1) translate3d(0, ${titleMove}px, 0)`,
           }}
         >
-          <Author>Jules Bourgoin’s</Author>
-          <Title>
-            <i>The Elements of</i>
-            <b>Arabic Art</b>
-          </Title>
+          <LogoContainer style={{transform: `rotate3d(0, 0, 1, -${rotation}deg)`}}>
+            <Logo />
+          </LogoContainer>
+
+          <TextContainer>
+            <Author>Jules Bourgoin’s</Author>
+            <Title>
+              <i>The Elements of</i>
+              <b>Arabic Art</b>
+            </Title>
+          </TextContainer>
         </Scaler>
 
         <NavigationContainer style={{transform: `translate3d(0, ${titleMove}px, 0)`}}>

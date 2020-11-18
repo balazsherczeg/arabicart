@@ -8,10 +8,11 @@ import Carrousel from './Carrousel';
 
 const Thumbnails = styled.div`
   background-color: #eee;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 1.5rem 1.5rem 2rem;
+  display: grid;
+  grid-gap: var(--gutter);
+  grid-template-columns: repeat(auto-fill, var(--columnWidth));
   justify-content: space-between;
+  padding: 1.5rem 1.5rem 2rem;
   position: relative;
 `;
 

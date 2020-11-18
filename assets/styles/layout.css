@@ -1,29 +1,40 @@
 @media only screen and (max-width: 599px) {
   :root {
     --columns: 1;
+    --footerLayout:
+      "slot-1"
+      "slot-2"
+      "slot-3";
   }
 }
 
 @media only screen and (min-width: 600px) {
   :root {
     --columns: 2;
+    --footerLayout:
+      "slot-1 slot-2"
+      "slot-3 slot-3";
   }
 }
 
 @media only screen and (min-width: 800px) {
   :root {
     --columns: 3;
+    --footerLayout:
+      "slot-1 slot-2 slot-3";
   }
 }
 
 @media only screen and (min-width: 1200px) {
   :root {
     --columns: 4;
+    --footerLayout:
+      "slot-1 slot-2 . slot-3";
   }
 }
 
 :root {
   --gutter: 1rem;
-
+  --columnWidth: calc(100% / var(--columns) - ((var(--columns) - 1) * var(--gutter)) / var(--columns));
   --accentColor: #4A9AC4;
 }
