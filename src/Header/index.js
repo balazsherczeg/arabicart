@@ -20,22 +20,6 @@ const Inner = styled.div`
   height: 96px;
 `;
 
-const Title = styled.h1`
-  font-family: var(--sansBold);
-  font-size: var(--fontSizeSerif2);
-  opacity: 0.8;
-
-  i {
-    font-family: var(--serifItalic);
-    margin-right: .3em;
-  }
-
-  b {
-    font-weight: normal;
-    font-size: .97em;
-  }
-`;
-
 const Scaler = styled.div`
    transform-origin: 0 100%;
    position: absolute;
@@ -60,9 +44,26 @@ const Author = styled.span`
   line-height: 1;
   margin-bottom: 6px;
   margin-left: 2px;
-  opacity: .8;
+  opacity: .9;
   text-transform: uppercase;
   opacity: 0.8;
+`;
+
+const Title = styled.h1`
+  font-family: var(--sansBold);
+  font-size: var(--fontSizeSerif2);
+  opacity: 0.8;
+
+  i {
+    font-family: var(--serifItalic);
+    margin-right: .3em;
+  }
+
+  b {
+    font-weight: normal;
+    font-size: .97em;
+    opacity: 0.9;
+  }
 `;
 
 const NavigationContainer = styled.div`
@@ -71,7 +72,7 @@ const NavigationContainer = styled.div`
   bottom: 24px;
 `;
 
-const MAX_SCROLL = 500;
+const MAX_SCROLL = 1000;
 
 const getTitleMove = (scrollTop) => {
   const move = 10;

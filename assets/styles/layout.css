@@ -36,5 +36,4 @@
 :root {
   --gutter: 1rem;
   --columnWidth: calc(100% / var(--columns) - ((var(--columns) - 1) * var(--gutter)) / var(--columns));
-  --accentColor: #4A9AC4;
 }

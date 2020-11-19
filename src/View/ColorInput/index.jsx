@@ -31,9 +31,6 @@ const ColorInput = ({
       : 0;
   };
 
-  useEffect(() => {
-  }, []);
-
   const togglePicker = () => {
     setPickerOpen(!pickerOpen);
   };

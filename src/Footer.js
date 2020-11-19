@@ -15,7 +15,7 @@ const Wrapper = styled.footer`
   }
 
   a, a:visited {
-    color: #475387;
+    color: var(--accentColor);
     text-decoration: none;
   }
 

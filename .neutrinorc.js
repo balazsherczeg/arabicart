@@ -42,8 +42,21 @@ module.exports = {
     react({
       html: {
         title: 'The Elements of Arabic Art',
-        
-      }
+      },
+      babel: {
+        presets: [
+          [
+            '@babel/preset-react',
+            {
+              throwIfNamespace: false,
+            },
+          ],
+        ],
+      },
+      // env: {
+      //   VAR_ONE: 'foo',
+      //   VAR_TWO: 'bar',
+      // },
     }),
     jest(),
     // styles({

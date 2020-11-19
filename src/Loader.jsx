@@ -7,7 +7,8 @@ const svgs = {};
 
 // console.log(process.argv[2]);
 
-const DATA_URL = 'https://balazsherczeg.github.io/arabicart/';
+// const DATA_URL = 'https://balazsherczeg.github.io/arabicart/';
+const DATA_URL = '/patterns/';
 
 const Loader = ({
   children,
