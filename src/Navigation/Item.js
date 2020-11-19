@@ -2,6 +2,7 @@ import React from 'react';
 import {bool, string} from 'prop-types';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
+import useCategoryItemCount from '../hooks/useCategoryItemCount';
 
 const Wrapper = styled.div`
   --color: var(--categoryColor-${({category}) => category});
@@ -24,6 +25,16 @@ const Wrapper = styled.div`
     fill: #fff;
   }
 
+  ${({empty}) => (empty && (`
+    opacity: .3;
+
+    a {
+      pointer-events: none;
+      cursor: default;
+      fill: #aaa;
+    }
+  `))}
+
   span {
     color: #000;
     font-family: ${({active}) => (active ? 'var(--serifItalic)' : 'var(--serif)')};
@@ -45,25 +56,31 @@ const Item = ({
   children,
   to,
   slug,
-}) => (
-  <Wrapper
-    active={active}
-    category={slug}
-  >
-    <Link to={to}>
-      <Svg
-        viewBox="0 0 500 500"
-      >
-        <use
-          xlinkHref={`#${slug}`}
-        />
-      </Svg>
+}) => {
+  const itemCount = useCategoryItemCount(slug);
+
+  return (
+    <Wrapper
+      active={active}
+      category={slug}
+      empty={itemCount === 0}
+    >
+      <Link to={to}>
+        <Svg
+          viewBox="0 0 500 500"
+        >
+          <use
+            xlinkHref={`#${slug}`}
+          />
+        </Svg>
+
         <span>
           {children}
         </span>
-    </Link>
-  </Wrapper>
-);
+      </Link>
+    </Wrapper>
+  );
+};
 
 Item.propTypes = {
   active: bool.isRequired,

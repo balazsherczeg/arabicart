@@ -20,4 +20,10 @@
   --categoryColor-all: var(--darkBlue);
   --categoryColor-hexagonals: var(--rust);
   --categoryColor-octagonals: var(--yellow);
+  --categoryColor-dodecagonals: var(--teal);
+  --categoryColor-stars-1: var(--smaragd);
+  --categoryColor-octagons-squares: var(--golden);
+  --categoryColor-stars-2: var(--blueGray);
+  --categoryColor-heptagonals: var(--sand);
+  --categoryColor-pentagonals: var(--grayGreen);
 }

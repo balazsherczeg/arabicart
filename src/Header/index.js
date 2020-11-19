@@ -69,15 +69,12 @@ const Title = styled.h1`
 const NavigationContainer = styled.div`
   position: absolute;
   right: 20px;
-  bottom: 24px;
+  bottom: 32px;
 `;
 
 const MAX_SCROLL = 1000;
 
-const getTitleMove = (scrollTop) => {
-  const move = 10;
-  return move * Math.min(scrollTop, MAX_SCROLL) / MAX_SCROLL;
-};
+const moveWithScroll = (scrollTop, move) => move * Math.min(scrollTop, MAX_SCROLL) / MAX_SCROLL;
 
 const getTitleScale = (scrollTop) => {
   const minSize = 0.7;
@@ -85,22 +82,18 @@ const getTitleScale = (scrollTop) => {
   return scale;
 };
 
-const getWrapperPosition = (scrollTop) => {
-  const move = 32;
-  return move * Math.min(scrollTop, MAX_SCROLL) / MAX_SCROLL;
-};
-
 const getRotation = (scrollTop) => {
   const move = 180;
-  return move * Math.min(scrollTop, MAX_SCROLL) / MAX_SCROLL;
+  return move * scrollTop / MAX_SCROLL;
 };
 
 const Header = () => {
   const {y: scrollTop} = useScroll();
 
-  const titleMove = getTitleMove(scrollTop);
+  const titleMove = moveWithScroll(scrollTop, 10);
+  const navigationMove = moveWithScroll(scrollTop, 16);
+  const wrapperPosition = moveWithScroll(scrollTop, 32);
   const titleScale = getTitleScale(scrollTop);
-  const wrapperPosition = getWrapperPosition(scrollTop);
   const rotation = getRotation(scrollTop);
 
   return (
@@ -124,10 +117,11 @@ const Header = () => {
           </TextContainer>
         </Scaler>
 
-        <NavigationContainer style={{transform: `translate3d(0, ${titleMove}px, 0)`}}>
+        <NavigationContainer style={{transform: `translate3d(0, ${navigationMove}px, 0)`}}>
           <Navigation />
         </NavigationContainer>
       </Inner>
+
     </Wrapper>
   );
 };
