@@ -3,8 +3,8 @@ import {func, number, string} from 'prop-types';
 import styled from 'styled-components';
 import {ChromePicker} from 'react-color';
 
-import Portal from '../../Portal';
-import Scrim from '../../Scrim';
+import Portal from '../../components/Portal';
+import Scrim from '../../components/Scrim';
 
 const Modal = styled.div`
   position: absolute;

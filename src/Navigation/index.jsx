@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 
-import Modal from './Modal';
+import SlideIn from '../components/SlideIn';
+import List from './List';
 
 const Button = styled.button`
   align-items: center;
@@ -33,11 +34,13 @@ const Navigation = () => {
         </svg>
       </Button>
 
-      {showMenu && (
-        <Modal
-          onClose={handleClose}
-        />
-      )}
+      <SlideIn
+        on={showMenu}
+        onClose={handleClose}
+        width={300}
+      >
+        <List />
+      </SlideIn>
     </div>
   );
 };

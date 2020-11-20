@@ -2,9 +2,13 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import usePatterns from './hooks/usePatterns';
 
-import Layout from './Layout';
+import SlideIn from './components/SlideIn';
 import Thumbnail from './Thumbnail';
 import Carrousel from './Carrousel';
+
+const Wrapper = styled.div`
+  padding-top: 6rem;
+`;
 
 const Thumbnails = styled.div`
   background-color: #eee;
@@ -31,27 +35,9 @@ const List = () => {
     setShowFullView(false);
   };
 
-  const handleUnmountFullView = () => {
-    setTimeout(() => setFullView(null), 1000);
-  };
-
-  const modal = fullView != null
-    ? (
-      <Carrousel
-        items={patterns}
-        index={fullView}
-        onClose={handleHideFullView}
-      />
-    )
-    : null;
-
   return (
-    <Layout
-      modal={modal}
-      onUnmountModal={handleUnmountFullView}
-      showModal={showFullView}
-    >
-      <div>
+    <>
+      <Wrapper>
         <Thumbnails>
           {patterns.map(({id, scale, width = 300}) => (
             <Thumbnail
@@ -63,8 +49,19 @@ const List = () => {
             />
           ))}
         </Thumbnails>
-      </div>
-    </Layout>
+      </Wrapper>
+
+      <SlideIn
+        from="bottom"
+        on={showFullView}
+      >
+        <Carrousel
+          items={patterns}
+          index={fullView}
+          onClose={handleHideFullView}
+        />
+      </SlideIn>
+    </>
   );
 };
 
