@@ -1,9 +1,10 @@
-import React, {useState, useContext, useEffect} from 'react';
+import React, {useContext} from 'react';
 
 import Editable from './Editable';
 import Static from './Static';
 import ControlContext from '../ControlContext';
-import {DataContext} from '../../context';
+import usePattern from '../../data/usePattern';
+import {itemPropType} from '../../data/propTypes';
 
 const Display = ({
   item: {
@@ -25,8 +26,7 @@ const Display = ({
     states,
   } = useContext(ControlContext);
 
-  const {getSvg} = useContext(DataContext);
-  const [src, setSrc] = useState(null);
+  const src = usePattern(id);
 
   const {
     shapeGroups,
@@ -35,12 +35,6 @@ const Display = ({
     strokeScale,
     editable,
   } = states[id] || {};
-
-  useEffect(() => {
-    getSvg(id).then((svg) => {
-      setSrc(svg);
-    });
-  }, [src, id]); /* eslint-disable-line */
 
   return (
     editable ? (
@@ -65,6 +59,10 @@ const Display = ({
       />
     )
   );
+};
+
+Display.propTypes = {
+  item: itemPropType.isRequired,
 };
 
 export default Display;

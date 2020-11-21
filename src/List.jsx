@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import usePatterns from './hooks/usePatterns';
+import usePatternsByCategory from './data/usePatternsByCategory';
 
 import SlideIn from './components/SlideIn';
 import Thumbnail from './Thumbnail';
@@ -23,7 +23,7 @@ const Thumbnails = styled.div`
 const List = () => {
   const [fullView, setFullView] = useState(null);
   const [showFullView, setShowFullView] = useState(false);
-  const patterns = usePatterns();
+  const patterns = usePatternsByCategory();
 
   const handleItemClick = (id) => {
     const index = patterns.findIndex((item) => id === item.id);
@@ -39,13 +39,11 @@ const List = () => {
     <>
       <Wrapper>
         <Thumbnails>
-          {patterns.map(({id, scale, width = 300}) => (
+          {patterns.map((item) => (
             <Thumbnail
-              key={id}
-              id={id}
-              scale={scale}
-              width={width}
-              onClick={() => handleItemClick(id)}
+              key={item.id}
+              item={item}
+              onClick={() => handleItemClick(item.id)}
             />
           ))}
         </Thumbnails>

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {useParams} from 'react-router-dom';
+import useCategory from '../data/useCategory';
 
 const Wrapper = styled.div`
   stroke: none;
@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 `;
 
 const Logo = () => {
-  const {category = 'all'} = useParams();
+  const category = useCategory() || 'all';
 
   return (
     <Wrapper category={category}>

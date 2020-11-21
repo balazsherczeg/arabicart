@@ -1,8 +1,8 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useState, useEffect} from 'react';
 import {shape, node, string} from 'prop-types';
 import styled from 'styled-components';
 
-import {DataContext} from '../context';
+import usePattern from '../data/usePattern';
 import Customizer from './Customizer';
 import Scale from './Buttons/Scale';
 import Guides from './Buttons/Guides';
@@ -63,6 +63,7 @@ const Control = ({
   },
   children,
 }) => {
+  const originalSrc = usePattern(id);
   const [scale, setScale] = useState(1);
   const [states, setStates] = useState({});
   const [downloadable, setDownloadable] = useState(null);
@@ -115,11 +116,8 @@ const Control = ({
 
   // Downloadable
 
-  const {getSvg} = useContext(DataContext);
   const setOriginalDownloadable = () => {
-    getSvg(id).then((src) => {
-      setDownloadable(src);
-    });
+    setDownloadable(originalSrc);
   };
 
   useEffect(() => {

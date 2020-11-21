@@ -2,7 +2,7 @@ import React from 'react';
 import {bool, string} from 'prop-types';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
-import useCategoryItemCount from '../hooks/useCategoryItemCount';
+import useCategoryItemCount from '../data/useCategoryItemCount';
 
 const Wrapper = styled.div`
   --color: var(--categoryColor-${({category}) => category});
@@ -86,7 +86,11 @@ Item.propTypes = {
   active: bool.isRequired,
   children: string.isRequired,
   to: string.isRequired,
-  slug: string.isRequired,
+  slug: string,
+};
+
+Item.defaultProps = {
+  slug: 'all',
 };
 
 export default Item;

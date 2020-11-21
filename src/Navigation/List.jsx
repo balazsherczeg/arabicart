@@ -1,8 +1,8 @@
-import React, {useContext} from 'react';
-import {useParams} from 'react-router-dom';
+import React from 'react';
 import styled from 'styled-components';
 
-import {DataContext} from '../context';
+import useCategory from '../data/useCategory';
+import useCategories from '../data/useCategories';
 import Item from './Item';
 
 const Wrapper = styled.div`
@@ -19,8 +19,8 @@ const IconDefs = styled.div`
 `;
 
 const List = () => {
-  const {categories} = useContext(DataContext);
-  const {category} = useParams();
+  const categories = useCategories();
+  const category = useCategory();
 
   return (
     <Wrapper>
@@ -38,7 +38,7 @@ const List = () => {
         </svg>
       </IconDefs>
 
-      <Item to="/" active={category == null} slug="all">All</Item>
+      <Item to="/" active={category == null}>All</Item>
 
       {categories.map(
         ({slug, name}) => (
