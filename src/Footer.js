@@ -75,8 +75,10 @@ const Footer = () => (
     <Column className="bio-2">
       <h2>Balázs Herczeg</h2>
       <p>
-        is designer, and these vector drawings are a kind of book report: the story of reading and
-        trying to understand <i>Les Eléments...</i>.
+        is designer and web developer.
+        This site is a kind of book report.
+        He found <i>Les Eléments...</i> remarkable, but figured out that the only way to read it is to redraw it.
+        And if redrawing, the drawings could be in <i>svg</i> format. And then, why to keep it for himself?
       </p>
     </Column>
 
@@ -85,6 +87,7 @@ const Footer = () => (
       <p>
         Type set in <a href="https://fonts.google.com/specimen/Montserrat">Montserrat</a> and <a href="https://fontlibrary.org/en/font/libre-bodoni">Libre Bodoni</a>.
         Colors inspired by the <a href="https://github.com/lambdamoses/IslamicArt">IslamicArt</a> palette.
+        Repos for <a href="https://github.com/balazsherczeg/arabicart-patterns">patterns</a> <i>&</i> <a href="https://github.com/balazsherczeg/arabicart">site</a>.
       </p>
       <p>
         Write me: <a href="mailto:balazs@herczeg.ee">balazs@herczeg.ee</a>
@@ -96,8 +99,8 @@ const Footer = () => (
           href="http://creativecommons.org/licenses/by/4.0/"
           title="This work is licensed under a Creative Commons Attribution 4.0 International License."
         >
-          <LicenceIcon src="assets/cc.svg" />
-          <LicenceIcon src="assets/by.svg" />
+          <LicenceIcon src="static/cc.svg" />
+          <LicenceIcon src="static/by.svg" />
         </a>
       </p>
     </Column>

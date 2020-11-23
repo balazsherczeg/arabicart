@@ -14,7 +14,7 @@ const ModalTransition = styled.div`
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 100000;
+  z-index: 2;
 
   ${({from, width}) => {
     switch (from) {
@@ -67,7 +67,7 @@ const ScrimTransition = styled.div`
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 10000;
+  z-index: 1;
 
   &.scrim-transition-enter {
     opacity: 0;
@@ -101,19 +101,6 @@ const SlideIn = ({
 
   return (
     <>
-      <CSSTransition
-        {...cssTransitionProps}
-        classNames="modal-transition"
-      >
-        <Portal>
-          <ModalTransition
-            from={from}
-            width={width}
-          >
-            {children}
-          </ModalTransition>
-        </Portal>
-      </CSSTransition>
 
       <CSSTransition
         {...cssTransitionProps}
@@ -126,6 +113,20 @@ const SlideIn = ({
               background={transparentScrim ? 'transparent' : '#0003'}
             />
           </ScrimTransition>
+        </Portal>
+      </CSSTransition>
+
+      <CSSTransition
+        {...cssTransitionProps}
+        classNames="modal-transition"
+      >
+        <Portal>
+          <ModalTransition
+            from={from}
+            width={width}
+          >
+            {children}
+          </ModalTransition>
         </Portal>
       </CSSTransition>
     </>

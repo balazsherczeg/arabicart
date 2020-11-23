@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useRef} from 'react';
 import {func, string} from 'prop-types';
 import styled from 'styled-components';
 

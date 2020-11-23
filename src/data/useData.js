@@ -1,6 +1,5 @@
 import {useEffect} from 'react';
-
-const DATA_URL = '/patterns/';
+import {DATA_URL} from './constants';
 
 let data = null;
 let started = false;

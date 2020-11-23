@@ -1,6 +1,5 @@
 import {useEffect, useState} from 'react';
-
-const DATA_URL = '/patterns/';
+import {DATA_URL} from './constants';
 
 const srcs = {};
 

@@ -1,7 +1,8 @@
 import React from 'react';
-import {shape, string, number} from 'prop-types';
+import {number} from 'prop-types';
 import styled from 'styled-components';
 
+import {itemPropType} from '../data/propTypes';
 import Display from '../View/Display';
 
 const getOffset = (index) => `${index * 100}vw`;
@@ -26,7 +27,6 @@ const Inner = styled.div`
 
 const Item = ({
   index,
-  src,
   item,
 }) => {
   return (
@@ -46,6 +46,7 @@ const Item = ({
 
 Item.propTypes = {
   index: number.isRequired,
+  item: itemPropType.isRequired,
 };
 
 export default Item;

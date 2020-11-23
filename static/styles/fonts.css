@@ -1,27 +1,27 @@
 @font-face {
   font-family: 'MontserratRegular';
-  src: url('/assets/fonts/montserrat-regular-webfont.woff2') format('woff2');
+  src: url('/static/fonts/montserrat-regular-webfont.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'montserratmedium';
-  src: url('/assets/fonts/montserrat-medium-webfont.woff2') format('woff2');
+  src: url('/static/fonts/montserrat-medium-webfont.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'MontserratSemiBold';
-  src: url('/assets/fonts/montserrat-semibold-webfont.woff2') format('woff2');
+  src: url('/static/fonts/montserrat-semibold-webfont.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'MontSerratBold';
-  src: url('/assets/fonts/montserrat-bold-webfont.woff2') format('woff2');
+  src: url('/static/fonts/montserrat-bold-webfont.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
@@ -30,14 +30,14 @@
   font-family: 'LibreBodoni';
   font-style: normal;
   font-weight: 400;
-  src: url(/assets/fonts/librebodoniv2002-regular.woff2) format('woff2');
+  src: url(/static/fonts/librebodoniv2002-regular.woff2) format('woff2');
 }
 
 @font-face {
   font-family: 'LibreBodoniItalic';
   font-style: italic;
   font-weight: 400;
-  src: url(/assets/fonts/librebodoniv2002-italic.woff2) format('woff2');
+  src: url(/static/fonts/librebodoniv2002-italic.woff2) format('woff2');
 }
 
 /* 6 8 10 13 16 21 26 34 42 */

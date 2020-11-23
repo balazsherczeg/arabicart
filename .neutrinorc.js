@@ -54,10 +54,9 @@ module.exports = {
           ],
         ],
       },
-      // env: {
-      //   VAR_ONE: 'foo',
-      //   VAR_TWO: 'bar',
-      // },
+      env: {
+        NODE_ENV: process.env.NODE_ENV,
+      },
     }),
     jest(),
     // styles({

@@ -9,7 +9,7 @@ import Scrim from '../../components/Scrim';
 const Modal = styled.div`
   position: absolute;
   bottom: 88px;
-  z-index: 101;
+  z-index: 1000;
 `;
 
 const ColorPicker = ({
@@ -18,7 +18,10 @@ const ColorPicker = ({
   onClose,
   left,
 }) => (
-  <Portal>
+  <Portal
+    zIndex={1000}
+    position=""
+  >
     <Scrim
       onClick={onClose}
     />

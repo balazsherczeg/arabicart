@@ -1,8 +1,10 @@
 import {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 
-const Portal = ({children}) => {
+const Portal = ({children, zIndex = 100, position = 'absolute'}) => {
   const [container] = useState(document.createElement('div'));
+  container.style.position = position;
+  container.style.zIndex = zIndex;
 
   useEffect(() => {
     document.body.appendChild(container);
