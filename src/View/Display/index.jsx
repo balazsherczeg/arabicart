@@ -1,68 +1,68 @@
 import React, {useContext} from 'react';
+import {string} from 'prop-types';
+import styled from 'styled-components';
 
 import Editable from './Editable';
 import Static from './Static';
 import ControlContext from '../ControlContext';
 import usePattern from '../../data/usePattern';
-import {itemPropType} from '../../data/propTypes';
+import SlideIn from '../../components/SlideIn';
+
+const Wrapper = styled.div`
+  height: 100%;
+  position: relative;
+`;
+
+const EditableWrapper = styled.div`
+  height: 100vh;
+  width: 100%;
+  padding-top: 48px;
+`;
 
 const Display = ({
-  item: {
-    id,
-    width,
-    scale: initialScale,
-  },
+  id,
 }) => {
   const {
     onChange,
-    onInit,
     scale,
-    // editable,
-    // shapeGroups,
-    // showGuides,
-    // strokeColor,
-    // strokeScale,
-
-    states,
+    showGuides,
+    editable,
   } = useContext(ControlContext);
 
   const src = usePattern(id);
 
-  const {
-    shapeGroups,
-    showGuides,
-    strokeColor,
-    strokeScale,
-    editable,
-  } = states[id] || {};
+  if (src) {
+    return (
+      <Wrapper className="Display">
+        <Static
+          scale={scale}
+          showGuides={showGuides}
+          src={src}
+        />
 
-  return (
-    editable ? (
-      <Editable
-        onChange={onChange}
-        onInit={onInit}
-        scale={scale}
-        shapeGroups={shapeGroups}
-        shouldScale={initialScale}
-        showGuides={showGuides}
-        src={src}
-        strokeColor={strokeColor}
-        strokeScale={strokeScale}
-        width={width}
-      />
-    ) : (
-      <Static
-        scale={scale * initialScale}
-        showGuides={showGuides}
-        src={src}
-        width={width}
-      />
-    )
-  );
+        <SlideIn
+          on={editable}
+          from="bottom"
+          scrim={false}
+          portal={false}
+        >
+          <EditableWrapper className="EditableWrapper">
+            <Editable
+              onChange={onChange}
+              showGuides={showGuides}
+              src={src}
+            />
+          </EditableWrapper>
+        </SlideIn>
+      </Wrapper>
+    );
+  }
+
+  return null;
 };
 
 Display.propTypes = {
-  item: itemPropType.isRequired,
+  id: string.isRequired,
 };
 
 export default Display;

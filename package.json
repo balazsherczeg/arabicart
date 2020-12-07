@@ -16,6 +16,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
     "react-color": "^2.19.3",
+    "react-cool-dimensions": "^1.1.10",
     "react-dom": "^16.14.0",
     "react-hot-loader": "^4.13.0",
     "react-intersection-observer": "^8.30.1",

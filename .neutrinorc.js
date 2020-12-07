@@ -11,9 +11,10 @@ module.exports = {
     airbnb({
       eslint: {
         rules: {
+          'arrow-body-style': 0,
           'arrow-parens': ['error', 'always'],
-          'babel/object-curly-spacing': [ 'error', 'never' ],
           'babel/no-unused-expressions': ['error', { 'allowShortCircuit': true, 'allowTernary': true }],
+          'babel/object-curly-spacing': [ 'error', 'never' ],
           'camelcase': ['error', {allow: ['UNSAFE_componentWillReceiveProps']}],
           'import/no-extraneous-dependencies': [0],
           'import/no-unresolved': 0,
@@ -31,18 +32,19 @@ module.exports = {
           'react/destructuring-assignment': [0],
           'react/forbid-prop-types': [2, { 'forbid': ['any']}],
           'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx'] }],
+          'react/jsx-pascal-case': 0,
           'react/jsx-props-no-spreading': 0,
           'react/no-access-state-in-setstate': 0,
           'react/no-array-index-key': 0,
-          'react/state-in-constructor': 0,
-          'arrow-body-style': 0,
-          'react/jsx-pascal-case': 0
+          'react/no-danger': 0,
+          'react/state-in-constructor': 0
         }
       }
     }),
     react({
       html: {
         title: 'The Elements of Arabic Art',
+        favicon: 'static/favicon.png'
       },
       babel: {
         presets: [

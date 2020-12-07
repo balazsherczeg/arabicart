@@ -1,9 +1,8 @@
-import React, {useState, useEffect} from 'react';
-import {shape, node, string} from 'prop-types';
+import React, {useState} from 'react';
+import {node, string} from 'prop-types';
 import styled from 'styled-components';
 
 import usePattern from '../data/usePattern';
-import Customizer from './Customizer';
 import Scale from './Buttons/Scale';
 import Guides from './Buttons/Guides';
 import Customize from './Buttons/Customize';
@@ -24,19 +23,14 @@ const RightTop = styled.div`
   position: absolute;
   top: 12px;
   right: 12px;
+  z-index: 10;
 `;
 
 const RightBottom = styled.div`
   position: absolute;
   right: 12px;
   bottom: 12px;
-`;
-
-const ControlRow = styled.div`
-  bottom: var(--rowHeight);
-  position: absolute;
-  right: 0;
-  width: 100%;
+  z-index: 10;
 `;
 
 const CenterBottom = styled.div`
@@ -49,135 +43,49 @@ const CenterBottom = styled.div`
   position: absolute;
   right: 0;
   background: #fff;
+  z-index: 10;
 `;
 
 const LeftBottom = styled.div`
   position: absolute;
   left: 12px;
   bottom: 12px;
+  z-index: 10;
 `;
 
 const Control = ({
-  item: {
-    id,
-  },
+  id,
   children,
 }) => {
   const originalSrc = usePattern(id);
   const [scale, setScale] = useState(1);
-  const [states, setStates] = useState({});
   const [downloadable, setDownloadable] = useState(null);
 
-  // State manipulating functions
-
-  const updateState = (nextState, _id) => {
-    const itemId = _id || id;
-    setStates({
-      ...states,
-      [itemId]: {
-        ...states[itemId],
-        ...nextState,
-      },
-    });
-  };
-
-  const getState = (property) => {
-    return states[id] && states[id][property];
-  };
-
-  const toggleState = (property) => {
-    updateState({[property]: !getState(property)});
-  };
-
-  // Init
-
-  const init = (initials) => {
-    updateState({shapeGroups: initials.shapeGroups});
-  };
-
-  useEffect(() => {
-    if (!states[id]) {
-      updateState({
-        editable: false,
-        showGuides: false,
-        shapeGroups: {},
-        strokeColor: '#fff',
-        strokeScale: 1,
-        downloadable: null,
-      });
-    }
-
-    const itemId = id;
-
-    return () => {
-      updateState({editable: false}, itemId);
-    };
-  }, [id]); // eslint-disable-line
-
-  // Downloadable
-
-  const setOriginalDownloadable = () => {
-    setDownloadable(originalSrc);
-  };
-
-  useEffect(() => {
-    if (!getState('downloadable')) {
-      setOriginalDownloadable();
-    }
-  }, [id]); // eslint-disable-line
-
-  useEffect(() => {
-    if (!getState('editable')) {
-      setOriginalDownloadable();
-    }
-  }, [getState('editable')]); // eslint-disable-line
-
-  const handleChange = (src) => {
-    setDownloadable(src);
-  };
+  const [editable, setEditable] = useState(false);
+  const [showGuides, setShowGuides] = useState(false);
 
   // Handlers
 
-  const handleFillColorChange = (nextColor, shapeGroupId) => {
-    updateState({
-      shapeGroups: {
-        ...getState('shapeGroups'),
-        [shapeGroupId]: nextColor,
-      },
-    });
+  const handleChange = (changes) => {
+    console.log("changes", changes);
   };
 
-  const handleGuideVisibilityChange = () => toggleState('showGuides');
-  const handleEditabilityChange = () => toggleState('editable');
+  const handleGuideVisibilityChange = () => setShowGuides(!showGuides);
+  const handleEditabilityChange = () => setEditable(!editable);
   const handleScaleChange = (nextScale) => setScale(nextScale);
-  const handleStrokeColorChange = (strokeColor) => updateState({strokeColor});
-  const handleStrokeWidthChange = (strokeScale) => updateState({strokeScale});
 
   return (
     <Wrapper>
       <ControlContext.Provider
         value={{
           onChange: handleChange,
-          onInit: init,
           scale,
-          states,
+          showGuides,
+          editable,
         }}
       >
         {children}
       </ControlContext.Provider>
-
-      {getState('editable') && getState('shapeGroups') && (
-        <ControlRow>
-          <Customizer
-            onFillChange={handleFillColorChange}
-            onStrokeColorChange={handleStrokeColorChange}
-            onStrokeWidthChange={handleStrokeWidthChange}
-            shapeGroups={getState('shapeGroups')}
-            strokeColor={getState('strokeColor')}
-            strokeScale={getState('strokeScale')}
-          />
-        </ControlRow>
-      )}
 
       <RightTop>
         <Download
@@ -187,24 +95,26 @@ const Control = ({
       </RightTop>
 
       <CenterBottom>
-        <Scale
-          value={scale}
-          onChange={handleScaleChange}
-          minValue={0.1}
-        />
+        {!editable && (
+          <Scale
+            value={scale}
+            onChange={handleScaleChange}
+            minValue={0.1}
+          />
+        )}
       </CenterBottom>
 
       <LeftBottom>
         <Guides
           onClick={handleGuideVisibilityChange}
-          value={getState('showGuides')}
+          value={showGuides}
         />
       </LeftBottom>
 
       <RightBottom>
         <Customize
           onClick={handleEditabilityChange}
-          value={getState('editable')}
+          value={editable}
         />
       </RightBottom>
     </Wrapper>
@@ -212,9 +122,7 @@ const Control = ({
 };
 
 Control.propTypes = {
-  item: shape({
-    id: string.isRequired,
-  }).isRequired,
+  id: string.isRequired,
   children: node.isRequired,
 };
 

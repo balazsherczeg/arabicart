@@ -1,14 +1,15 @@
 import usePatterns from './usePatterns';
 import useCategories from './useCategories';
+import {getCategoryBySlug} from './utils';
 
-const useCategoryItemCount = (category) => {
+const useCategoryItemCount = (categorySlug) => {
   const allPatterns = usePatterns();
   const categories = useCategories();
 
-  if (category == null || category === 'all') return allPatterns.length;
+  if (categorySlug == null || categorySlug === 'all') return allPatterns.length;
 
-  const categoryWithSlug = categories.find((item) => item && item.slug === category);
-  const categoryId = categoryWithSlug ? categoryWithSlug.id : null;
+  const category = getCategoryBySlug(categorySlug, categories);
+  const categoryId = category ? category.id : null;
 
   return allPatterns.filter((pattern) => pattern.category === categoryId).length;
 };

@@ -2,23 +2,31 @@ import {useState, useEffect} from 'react';
 import useCategory from './useCategory';
 import useCategories from './useCategories';
 import usePatterns from './usePatterns';
+import {getCategoryBySlug} from './utils';
 
 const usePatternsByCategory = () => {
-  const category = useCategory();
+  const categorySlug = useCategory();
   const categories = useCategories();
   const allPatterns = usePatterns();
 
   const [patterns, setPatterns] = useState([]);
 
   useEffect(() => {
-    const categoryId = category && categories && categories.find(({slug}) => slug === category).id;
+    const category = getCategoryBySlug(categorySlug, categories);
 
-    const filteredData = categoryId == null
-      ? [...allPatterns]
-      : allPatterns.filter((item) => +item.category === categoryId);
-
-    setPatterns(filteredData.reverse());
-  }, [allPatterns, category, categories]);
+    switch (category) {
+      case false: // All items, no category
+        setPatterns([...allPatterns.reverse()]);
+        break;
+      case null: // No category yet
+        setPatterns([]);
+        break;
+      default: {
+        const filteredData = allPatterns.filter((item) => item.category === category.id);
+        setPatterns(filteredData);
+      }
+    }
+  }, [allPatterns, categorySlug, categories]);
 
   return patterns;
 };
