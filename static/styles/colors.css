@@ -1,29 +1,21 @@
 :root {
-  --golden: #907A58;
-  --darkBlue: #475387;
-  --beige: #DFD8CC;
-  --teal: #4A9AC4;
-  --gray: #A49DA0;
-  --smaragd: #406A72;
-  --sand: #D3BDA7;
-  --grayGreen: #A2D1D6;
-  --blueGray: #758390;
-  --lightBrown: #AA8858;
-  --blue1: #8EC5EE;
-  --blue2: #8CC6EA;
-  --blue3: #B6DAEC;
-  --rust: #D8692D;
-  --yellow: #F8C346;
+  --black: #443430;
+  --red: #BF402B;
+  --gold: #CEA600;
+  --turquois: #4D9BA3;
+  --emerald: #216554;
+  --blue: #262F66;
+  --white: #FFFAF2;
 
-  --accentColor: var(--teal);
+  --accentColor: var(--turquois);
 
-  --categoryColor-all: var(--darkBlue);
-  --categoryColor-hexagonals: var(--rust);
-  --categoryColor-octagonals: var(--yellow);
-  --categoryColor-dodecagonals: var(--teal);
+  --categoryColor-all: var(--turquois);
+  --categoryColor-hexagonals: var(--red);
+  --categoryColor-octagonals: var(--blue);
+/*  --categoryColor-dodecagonals: var(--teal);
   --categoryColor-stars-1: var(--smaragd);
   --categoryColor-octagons-squares: var(--golden);
   --categoryColor-stars-2: var(--blueGray);
   --categoryColor-heptagonals: var(--sand);
   --categoryColor-pentagonals: var(--grayGreen);
-}
+*/}

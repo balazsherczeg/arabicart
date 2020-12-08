@@ -6,7 +6,7 @@ import Logo from './Logo';
 import useScroll from '../hooks/useScroll';
 
 const Wrapper = styled.header`
-  background: #fff;
+  background: #fffffffa;
   height: 96px;
   left: 0;
   position: fixed;

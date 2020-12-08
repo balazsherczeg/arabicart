@@ -27,9 +27,14 @@ const Button = styled.button`
   padding: 0;
   width: 1.5rem;
 
-  &:hover {
+  &:hover:not(:disabled) {
     background: #ccc;
     fill: #fff;
+  }
+
+  &:disabled {
+    opacity: .3;
+    cursor: default;
   }
 `;
 
@@ -38,9 +43,10 @@ const ScaleInput = ({
   onIncrease,
   onDecrease,
   unit,
+  minValue,
 }) => (
   <Wrapper>
-    <Button type="button" onClick={onDecrease}>
+    <Button type="button" onClick={onDecrease} disabled={minValue != null && value <= minValue}>
       <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M19 13H5v-2h14v2z" /></svg>
     </Button>
     <Percent>{`${value}${unit}`}</Percent>
@@ -51,10 +57,15 @@ const ScaleInput = ({
 );
 
 ScaleInput.propTypes = {
-  value: number.isRequired,
-  onIncrease: func.isRequired,
+  minValue: number,
   onDecrease: func.isRequired,
+  onIncrease: func.isRequired,
   unit: string.isRequired,
+  value: number.isRequired,
+};
+
+ScaleInput.defaultProps = {
+  minValue: null,
 };
 
 export default ScaleInput;

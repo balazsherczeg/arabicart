@@ -6,8 +6,10 @@ const ScaleInput = ({
   value,
   onChange,
 }) => {
+  const minValue = 0;
+
   const handleDecrease = () => {
-    if (value > 0) {
+    if (value > minValue) {
       onChange(+value - 1);
     }
   };
@@ -20,6 +22,7 @@ const ScaleInput = ({
       onDecrease={handleDecrease}
       unit="PX"
       value={value}
+      minValue={minValue}
     />
   );
 };

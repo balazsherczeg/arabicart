@@ -53,6 +53,7 @@ const Tile = ({
         onDeselect={onDeselect}
         selectedGroup={selectedGroup}
         src={src}
+        zoom={scale}
       />
     )}
   </Wrapper>

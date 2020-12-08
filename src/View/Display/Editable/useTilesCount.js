@@ -1,13 +1,19 @@
 import {useState, useEffect} from 'react';
 import useDimensions from 'react-cool-dimensions';
-import useSrcDimensions from '../useSrcDimensions';
+import useSrcDimensions from '../../useSrcDimensions';
+import useBackgroundWidth from '../../useBackgroundWidth';
 
-const useTilesCount = (src, columns = 2, defaultRows = 4) => {
-  const [tilesCount, setTilesCount] = useState(defaultRows);
+const useTilesCount = (src, zoom) => {
   const [ratio, setRatio] = useState('landscape');
   const {height: srcHeight, width: srcWidth} = useSrcDimensions(src);
-  const [scale, setScale] = useState(1);
-  const [renderableWidth, setRenderableWidth] = useState(null);
+  const [columnsCount, setColumnsCount] = useState(0);
+  const [rowsCount, setRowsCount] = useState(0);
+
+  const {
+    height: renderableHeight,
+    width: renderableWidth,
+    scale,
+  } = useBackgroundWidth(src, zoom, 240);
 
   const {
     ref,
@@ -22,32 +28,17 @@ const useTilesCount = (src, columns = 2, defaultRows = 4) => {
   }, [srcWidth, srcHeight]);
 
   useEffect(() => {
-    if (ref.current && wrapperWidth && wrapperHeight) {
-      if (ratio >= 1) {
-        const renderedScale = (wrapperWidth / columns) / srcWidth;
-        const itemHeight = renderedScale * srcHeight;
-        const rowsCount = Math.ceil(wrapperHeight / itemHeight);
-
-        setScale(renderedScale);
-        setTilesCount(rowsCount * columns);
-      } else if (ratio < 1) {
-        const renderedScale = wrapperHeight / srcHeight;
-        const itemWidth = renderedScale * srcWidth;
-        const columnsCount = Math.ceil(wrapperWidth / itemWidth);
-
-        setScale(renderedScale);
-        setTilesCount(columnsCount);
-        setRenderableWidth(itemWidth);
-      }
+    if (ref.current && wrapperWidth && wrapperHeight && renderableWidth && renderableHeight) {
+      setColumnsCount(Math.ceil(wrapperWidth / renderableWidth));
+      setRowsCount(Math.ceil(wrapperHeight / renderableHeight));
     }
   }, [
-    columns,
     ref,
-    srcHeight,
-    srcWidth,
-    ratio,
+    renderableHeight,
+    renderableWidth,
     wrapperHeight,
     wrapperWidth,
+    zoom,
   ]);
 
   return {
@@ -55,10 +46,13 @@ const useTilesCount = (src, columns = 2, defaultRows = 4) => {
     ratio,
     ref,
     renderableWidth,
+    renderableHeight,
+    rowsCount,
+    columnsCount,
     scale,
     srcHeight,
     srcWidth,
-    tilesCount,
+    tilesCount: columnsCount * rowsCount,
   };
 };
 

@@ -16,14 +16,14 @@ const usePatternsByCategory = () => {
 
     switch (category) {
       case false: // All items, no category
-        setPatterns([...allPatterns.reverse()]);
+        setPatterns([...allPatterns].reverse());
         break;
       case null: // No category yet
         setPatterns([]);
         break;
       default: {
         const filteredData = allPatterns.filter((item) => item.category === category.id);
-        setPatterns(filteredData);
+        setPatterns(filteredData.reverse());
       }
     }
   }, [allPatterns, categorySlug, categories]);

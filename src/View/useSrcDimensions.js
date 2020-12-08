@@ -5,8 +5,10 @@ const useSrcDimensions = (src) => {
   const [width, setWidth] = useState(null);
 
   useEffect(() => {
-    setWidth(src.match(/width="([^"]*)"/)[1]);
-    setHeight(src.match(/height="([^"]*)"/)[1]);
+    if (src) {
+      setWidth(src.match(/width="([^"]*)"/)[1]);
+      setHeight(src.match(/height="([^"]*)"/)[1]);
+    }
   }, [src]);
 
   return {

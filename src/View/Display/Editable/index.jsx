@@ -1,6 +1,7 @@
 import React, {useState, useRef} from 'react';
 import {bool, number, string} from 'prop-types';
 import styled from 'styled-components';
+import SlideIn from '../../../components/SlideIn';
 import Customizer from './Customizer';
 import Tile from './Tile';
 import Layout from './Layout';
@@ -11,7 +12,7 @@ const Wrapper = styled.div`
 `;
 
 const ControlRow = styled.div`
-  bottom: var(--rowHeight);
+  bottom: calc(2 * var(--rowHeight));
   position: absolute;
   right: 0;
   width: 100%;
@@ -35,6 +36,8 @@ const Editable = ({
   // onChange,
   showGuides,
   src,
+  zoom,
+  editable,
 }) => {
   const ref = useRef(null);
   const [selectedClass, setSelectedClass] = useState(null);
@@ -72,40 +75,53 @@ const Editable = ({
 
   return (
     <Wrapper ref={ref} className="Editable">
-      <Layout src={src}>
-        <Tile
-          {...{
-            fillColors: overwrittenColors,
-            onShapeClick: handleShapeClick,
-            selectedClass,
-            showGuides,
-            src,
-            selectedGroup,
-            onDeselect: deselect,
-            strokeWidth,
-            strokeColor,
-          }}
-        />
-      </Layout>
+      {editable && (
+        <Layout
+          src={src}
+          zoom={zoom}
+        >
+          <Tile
+            {...{
+              fillColors: overwrittenColors,
+              onShapeClick: handleShapeClick,
+              selectedClass,
+              showGuides,
+              src,
+              selectedGroup,
+              onDeselect: deselect,
+              strokeWidth,
+              strokeColor,
+            }}
+          />
+        </Layout>
+      )}
 
-      <ControlRow>
-        <Customizer
-          fillColor={selectedColor}
-          onDeselect={deselect}
-          onFillChange={handleFillChange}
-          onStrokeColorChange={setStrokeColor}
-          onStrokeWidthChange={setStrokeWidth}
-          showDeselect={selectedClass}
-          strokeColor={strokeColor}
-          strokeWidth={strokeWidth}
-        />
-      </ControlRow>
+      <SlideIn
+        on={editable}
+        portal={false}
+        scrim={false}
+        from="bottom"
+        height={48}
+      >
+        <ControlRow>
+          <Customizer
+            fillColor={selectedColor}
+            onDeselect={deselect}
+            onFillChange={handleFillChange}
+            onStrokeColorChange={setStrokeColor}
+            onStrokeWidthChange={setStrokeWidth}
+            showDeselect={selectedClass}
+            strokeColor={strokeColor}
+            strokeWidth={strokeWidth}
+          />
+        </ControlRow>
+      </SlideIn>
     </Wrapper>
   );
 };
 
 Editable.propTypes = {
-  scale: number.isRequired,
+  zoom: number.isRequired,
   showGuides: bool,
   src: string.isRequired,
 };

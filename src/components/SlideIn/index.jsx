@@ -41,6 +41,7 @@ const SlideIn = ({
   onClose,
   transparentScrim,
   width,
+  height,
   portal,
   scrim,
 }) => {
@@ -77,6 +78,7 @@ const SlideIn = ({
           <SlideInInner
             from={from}
             width={width}
+            height={height}
             duration={DURATION}
           >
             {children}
@@ -94,6 +96,7 @@ SlideIn.propTypes = {
   onClose: func.isRequired,
   transparentScrim: bool,
   width: number,
+  height: number,
   scrim: bool,
   portal: bool,
 };
@@ -102,6 +105,7 @@ SlideIn.defaultProps = {
   from: 'right',
   transparentScrim: false,
   width: 300,
+  height: null,
   scrim: true,
   portal: true,
 };

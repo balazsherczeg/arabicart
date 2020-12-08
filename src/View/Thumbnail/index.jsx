@@ -2,13 +2,14 @@ import React from 'react';
 import {func, shape, string} from 'prop-types';
 import styled from 'styled-components';
 import {useInView} from 'react-intersection-observer';
+import useItemCategory from '../../data/useItemCategory';
 
 import Image from './Image';
 
 const $Frame = styled.article`
   --aspectRatio: calc(1 / 1.62);
 
-  background-color: #475387;
+  background-color: ${({category}) => (`var(--categoryColor-${category})`)};
   box-sizing: border-box;
   display: block;
   padding-bottom: calc(100% * var(--aspectRatio));
@@ -31,7 +32,6 @@ const $Caption = styled.div`
 `;
 
 const Thumbnail = ({
-  item,
   item: {id},
   onClick,
 }) => {
@@ -39,16 +39,19 @@ const Thumbnail = ({
     triggerOnce: true,
   });
 
+  const {slug: category} = useItemCategory(id);
+
   return (
     <$Frame
       ref={ref}
       role="button"
       onClick={onClick}
       title={id}
+      category={category}
     >
       {inView && (
         <Image
-          item={item}
+          id={id}
         />
       )}
       <$Caption>{id}</$Caption>

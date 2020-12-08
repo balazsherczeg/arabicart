@@ -14,12 +14,18 @@ const Modal = styled.div`
   ${({
     from,
     width,
+    height,
     duration = DURATION,
   }) => {
     switch (from) {
       case 'bottom': {
         return `
+          right: auto;
+          height: ${height ? `${height}px` : '100vh'};
+          left: auto;
+          top: auto;
           width: 100vw;
+
           &.modal-transition-enter {
             transform: translateY(100%);
           }

@@ -21,8 +21,7 @@ const Wrapper = styled.div`
   }
 
   a:hover {
-    background-color: var(--color);
-    fill: #fff;
+    background-color: #eee;
   }
 
   ${({empty}) => (empty && (`
@@ -66,13 +65,15 @@ const Item = ({
       empty={itemCount === 0}
     >
       <Link to={to}>
-        <Svg
-          viewBox="0 0 500 500"
-        >
-          <use
-            xlinkHref={`#${slug}`}
-          />
-        </Svg>
+        {itemCount > 1 && (
+          <Svg
+            viewBox="0 0 500 500"
+          >
+            <use
+              xlinkHref={`#${slug}`}
+            />
+          </Svg>
+        )}
 
         <span>
           {children}

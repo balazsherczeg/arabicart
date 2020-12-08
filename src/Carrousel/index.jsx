@@ -27,6 +27,7 @@ const Carrousel = ({
 }) => {
   const [index, setIndex] = useState(startIndex);
   const [renderables, setRenderables] = useState([startIndex]);
+  const [showButtons, setShowButtons] = useState(true);
 
   const getCarrouselStyle = () => ({
     width: `${items.length * 100}vw`,
@@ -52,17 +53,22 @@ const Carrousel = ({
   const firstFrame = index === 0;
   const lastFrame = index === items.length - 1;
 
+  const toggleCarrousel = (value) => {setShowButtons(!!value);};
+
   return (
     <Wrapper>
-      <Buttons
-        onPrev={handlePrevClick}
-        onNext={handleNextClick}
-        onClose={onClose}
-        showPrev={!firstFrame}
-        showNext={!lastFrame}
-      />
+      {showButtons && (
+        <Buttons
+          onPrev={handlePrevClick}
+          onNext={handleNextClick}
+          onClose={onClose}
+          showPrev={!firstFrame}
+          showNext={!lastFrame}
+        />
+      )}
+
       <Control
-        item={items[index]}
+        id={items[index].id}
       >
         <Main
           style={getCarrouselStyle()}
@@ -72,6 +78,7 @@ const Carrousel = ({
               item={items[renderableIndex]}
               index={renderableIndex}
               key={renderableIndex}
+              toggleCarrousel={toggleCarrousel}
             />
           ))}
         </Main>

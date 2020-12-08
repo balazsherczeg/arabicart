@@ -28,6 +28,7 @@ const Inner = styled.div`
 const Item = ({
   index,
   item,
+  toggleCarrousel,
 }) => {
   return (
     <Main
@@ -37,7 +38,8 @@ const Item = ({
     >
       <Inner>
         <Display
-          item={item}
+          id={item.id}
+          onEditable={toggleCarrousel}
         />
       </Inner>
     </Main>

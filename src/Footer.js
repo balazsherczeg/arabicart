@@ -86,7 +86,6 @@ const Footer = () => (
       <h2>Colophon</h2>
       <p>
         Type set in <a href="https://fonts.google.com/specimen/Montserrat">Montserrat</a> and <a href="https://fontlibrary.org/en/font/libre-bodoni">Libre Bodoni</a>.
-        Colors inspired by the <a href="https://github.com/lambdamoses/IslamicArt">IslamicArt</a> palette.
         Repos for <a href="https://github.com/balazsherczeg/arabicart-patterns">patterns</a> <i>&</i> <a href="https://github.com/balazsherczeg/arabicart">site</a>.
       </p>
       <p>

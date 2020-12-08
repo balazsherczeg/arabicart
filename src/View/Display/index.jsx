@@ -1,59 +1,57 @@
 import React, {useContext} from 'react';
-import {string} from 'prop-types';
+import {func, string} from 'prop-types';
 import styled from 'styled-components';
 
 import Editable from './Editable';
 import Static from './Static';
 import ControlContext from '../ControlContext';
 import usePattern from '../../data/usePattern';
-import SlideIn from '../../components/SlideIn';
 
 const Wrapper = styled.div`
-  height: 100%;
+  height: calc(100% - 2 * var(--rowHeight));
   position: relative;
 `;
 
 const EditableWrapper = styled.div`
-  height: 100vh;
+  position: absolute;
+  height: 100%;
   width: 100%;
-  padding-top: 48px;
+  top: 0;
 `;
 
 const Display = ({
   id,
+  onEditable,
 }) => {
   const {
-    onChange,
-    scale,
-    showGuides,
     editable,
+    onChange,
+    showGuides,
+    zoom,
   } = useContext(ControlContext);
 
+  onEditable(!editable);
+
   const src = usePattern(id);
+
+  const props = {
+    showGuides,
+    src,
+    zoom,
+  };
 
   if (src) {
     return (
       <Wrapper className="Display">
-        <Static
-          scale={scale}
-          showGuides={showGuides}
-          src={src}
-        />
+        <Static {...props} />
 
-        <SlideIn
-          on={editable}
-          from="bottom"
-          scrim={false}
-          portal={false}
-        >
-          <EditableWrapper className="EditableWrapper">
-            <Editable
-              onChange={onChange}
-              showGuides={showGuides}
-              src={src}
-            />
-          </EditableWrapper>
-        </SlideIn>
+        <EditableWrapper className="EditableWrapper">
+          <Editable
+            onChange={onChange}
+            editable={editable}
+            {...props}
+          />
+        </EditableWrapper>
       </Wrapper>
     );
   }
@@ -63,6 +61,7 @@ const Display = ({
 
 Display.propTypes = {
   id: string.isRequired,
+  onEditable: func.isRequired,
 };
 
 export default Display;

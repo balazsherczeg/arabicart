@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import usePatternsByCategory from './data/usePatternsByCategory';
 
 import SlideIn from './components/SlideIn';
-import Thumbnail from './Thumbnail';
+import Thumbnail from './View/Thumbnail';
 import Carrousel from './Carrousel';
+import Hero from './Hero';
 
 const Wrapper = styled.div`
   padding-top: 6rem;
@@ -38,6 +39,7 @@ const List = () => {
   return (
     <>
       <Wrapper>
+        <Hero />
         <Thumbnails>
           {patterns.map((item) => (
             <Thumbnail

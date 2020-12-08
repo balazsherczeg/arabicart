@@ -58,7 +58,7 @@ const Control = ({
   children,
 }) => {
   const originalSrc = usePattern(id);
-  const [scale, setScale] = useState(1);
+  const [zoom, setZoom] = useState(1);
   const [downloadable, setDownloadable] = useState(null);
 
   const [editable, setEditable] = useState(false);
@@ -72,14 +72,14 @@ const Control = ({
 
   const handleGuideVisibilityChange = () => setShowGuides(!showGuides);
   const handleEditabilityChange = () => setEditable(!editable);
-  const handleScaleChange = (nextScale) => setScale(nextScale);
+  const handleScaleChange = (nextScale) => setZoom(nextScale);
 
   return (
     <Wrapper>
       <ControlContext.Provider
         value={{
           onChange: handleChange,
-          scale,
+          zoom,
           showGuides,
           editable,
         }}
@@ -95,13 +95,10 @@ const Control = ({
       </RightTop>
 
       <CenterBottom>
-        {!editable && (
-          <Scale
-            value={scale}
-            onChange={handleScaleChange}
-            minValue={0.1}
-          />
-        )}
+        <Scale
+          value={zoom}
+          onChange={handleScaleChange}
+        />
       </CenterBottom>
 
       <LeftBottom>

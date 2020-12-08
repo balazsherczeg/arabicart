@@ -3,7 +3,7 @@ import {bool, number, string} from 'prop-types';
 import styled from 'styled-components';
 import UpdateWithoutBlink from './UpdateWithoutBlink';
 
-import useBackgroundWidth from './useBackgroundWidth';
+import useBackgroundWidth from '../useBackgroundWidth';
 import {svgToDom} from '../utils';
 
 const Wrapper = styled.div`
@@ -17,17 +17,17 @@ const SvgContainer = styled.div`
 `;
 
 const Display = ({
-  scale,
+  zoom,
   showGuides,
   src,
 }) => {
   let s = src;
-  const {backgroundWidth, scale: initialScale} = useBackgroundWidth(src);
+  const {width, scale} = useBackgroundWidth(src, zoom, 240);
 
   if (showGuides) {
     const svg = svgToDom(src);
     svg.showGuides(showGuides);
-    svg.setGuideWidth(1 / initialScale / scale);
+    svg.setGuideWidth(1 / scale);
     s = svg.getInner();
     svg.cleanUp();
   }
@@ -38,7 +38,7 @@ const Display = ({
         <SvgContainer
           style={{
             backgroundImage: `url('data:image/svg+xml;utf8,${encodeURIComponent(s)}')`,
-            backgroundSize: `${scale * backgroundWidth}px`,
+            backgroundSize: `${width}px`,
           }}
         />
       </UpdateWithoutBlink>
@@ -47,10 +47,9 @@ const Display = ({
 };
 
 Display.propTypes = {
-  scale: number.isRequired,
+  zoom: number.isRequired,
   showGuides: bool,
   src: string.isRequired,
-  width: number.isRequired,
 };
 
 Display.defaultProps = {

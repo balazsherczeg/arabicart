@@ -2,7 +2,7 @@ import React, {useRef, useEffect} from 'react';
 import {func, number, string} from 'prop-types';
 import styled from 'styled-components';
 
-import useSrcDimensions from '../../useSrcDimensions';
+import useSrcDimensions from '../../../useSrcDimensions';
 
 const Svg = styled.svg`
   position: absolute;
@@ -18,7 +18,7 @@ const Svg = styled.svg`
 
   polygon, rect, path {
     pointer-events: auto;
-    stroke-width: 2px;
+    stroke-width: ${({zoom}) => 2 / zoom}px;
     stroke: magenta;
     fill: transparent;
   }
@@ -28,6 +28,7 @@ const Selected = ({
   src,
   selectedGroup,
   onDeselect,
+  zoom,
 }) => {
   const ref = useRef(null);
   const {height, width} = useSrcDimensions(src);
@@ -49,6 +50,7 @@ const Selected = ({
     <Svg
       viewBox={`0 0 ${width} ${height}`}
       ref={ref}
+      zoom={zoom}
     >
       <g
         dangerouslySetInnerHTML={{__html: selectedGroup}}
@@ -61,6 +63,7 @@ Selected.propTypes = {
   src: string.isRequired,
   selectedGroup: string.isRequired,
   onDeselect: func.isRequired,
+  zoom: number.isRequired,
 };
 
 export default Selected;
