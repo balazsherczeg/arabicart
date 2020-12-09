@@ -57,18 +57,12 @@ const Control = ({
   id,
   children,
 }) => {
-  const originalSrc = usePattern(id);
+  const src = usePattern(id);
   const [zoom, setZoom] = useState(1);
-  const [downloadable, setDownloadable] = useState(null);
-
   const [editable, setEditable] = useState(false);
   const [showGuides, setShowGuides] = useState(false);
 
   // Handlers
-
-  const handleChange = (changes) => {
-    console.log("changes", changes);
-  };
 
   const handleGuideVisibilityChange = () => setShowGuides(!showGuides);
   const handleEditabilityChange = () => setEditable(!editable);
@@ -78,7 +72,6 @@ const Control = ({
     <Wrapper>
       <ControlContext.Provider
         value={{
-          onChange: handleChange,
           zoom,
           showGuides,
           editable,
@@ -88,10 +81,13 @@ const Control = ({
       </ControlContext.Provider>
 
       <RightTop>
-        <Download
-          downloadable={downloadable}
-          id={id}
-        />
+        {!editable && (
+          <Download
+            src={src}
+            id={id}
+            zoom={zoom}
+          />
+        )}
       </RightTop>
 
       <CenterBottom>

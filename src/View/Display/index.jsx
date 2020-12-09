@@ -35,6 +35,7 @@ const Display = ({
   const src = usePattern(id);
 
   const props = {
+    id,
     showGuides,
     src,
     zoom,

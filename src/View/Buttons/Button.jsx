@@ -15,7 +15,7 @@ const ButtonStyled = styled.button`
   padding: 0 12px;
   text-transform: uppercase;
   width: ${({width}) => width};
-  font-family: ${({primary}) => (primary ? 'var(--sansMedium)' : 'var(--sansSemiBold)')};
+  font-family: ${({primary}) => (primary ? 'var(--sans)' : 'var(--sansBold)')};
   font-size: 12px;
 
   &:hover {

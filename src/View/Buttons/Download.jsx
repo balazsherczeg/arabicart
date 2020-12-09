@@ -1,22 +1,36 @@
 import React from 'react';
-import {string} from 'prop-types';
+import {objectOf, number, string} from 'prop-types';
 
 import Button from './Button';
-import {svgToDom, download} from '../utils';
+import Manipulatable from '../Manipulatable';
+import {download} from '../utils';
+import useBackgroundWidth from '../useBackgroundWidth';
 
 const Download = ({
-  downloadable,
+  src,
   id,
+  fillColors,
+  strokeWidth,
+  strokeColor,
+  zoom,
 }) => {
+  const {scale} = useBackgroundWidth(src, zoom, 240);
+
   const handleClick = () => {
-    const {guides, getInner, cleanUp} = svgToDom(downloadable);
-    if (guides) guides.remove();
+    const manipulatable = Manipulatable(src);
+    manipulatable.removeGuides();
+    manipulatable.removeStyle();
+    if (fillColors) manipulatable.applyFill(fillColors);
+    if (strokeWidth) manipulatable.applyStroke(strokeWidth, strokeColor);
+    manipulatable.optimize();
+    if (scale !== 1) manipulatable.applySize(scale);
+
     download(
-      getInner(),
+      manipulatable.getSrc(),
       `Elements-of-Arabic-Art-${id}.svg`,
       'image/svg+xml',
     );
-    cleanUp();
+    manipulatable.cleanUp();
   };
 
   return (
@@ -25,8 +39,19 @@ const Download = ({
 };
 
 Download.propTypes = {
-  downloadable: string.isRequired,
+  src: string.isRequired,
   id: string.isRequired,
+  fillColors: objectOf(string),
+  strokeWidth: number,
+  strokeColor: string,
+  zoom: number,
+};
+
+Download.defaultProps = {
+  fillColors: null,
+  strokeWidth: null,
+  strokeColor: null,
+  zoom: 1,
 };
 
 export default Download;

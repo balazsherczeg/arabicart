@@ -3,8 +3,8 @@ import {bool, number, string} from 'prop-types';
 import styled from 'styled-components';
 import UpdateWithoutBlink from './UpdateWithoutBlink';
 
+import Manipulatable from '../Manipulatable';
 import useBackgroundWidth from '../useBackgroundWidth';
-import {svgToDom} from '../utils';
 
 const Wrapper = styled.div`
   position: relative;
@@ -21,15 +21,15 @@ const Display = ({
   showGuides,
   src,
 }) => {
-  let s = src;
+  let renderableSrc = src;
   const {width, scale} = useBackgroundWidth(src, zoom, 240);
 
   if (showGuides) {
-    const svg = svgToDom(src);
-    svg.showGuides(showGuides);
-    svg.setGuideWidth(1 / scale);
-    s = svg.getInner();
-    svg.cleanUp();
+    const manipulatable = Manipulatable(src);
+    manipulatable.showGuides();
+    manipulatable.setGuideWidth(1 / scale);
+    renderableSrc = manipulatable.getSrc();
+    manipulatable.cleanUp();
   }
 
   return (
@@ -37,7 +37,7 @@ const Display = ({
       <UpdateWithoutBlink>
         <SvgContainer
           style={{
-            backgroundImage: `url('data:image/svg+xml;utf8,${encodeURIComponent(s)}')`,
+            backgroundImage: `url('data:image/svg+xml;utf8,${encodeURIComponent(renderableSrc)}')`,
             backgroundSize: `${width}px`,
           }}
         />

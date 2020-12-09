@@ -1,6 +1,8 @@
 import React, {useState, useRef} from 'react';
 import {bool, number, string} from 'prop-types';
 import styled from 'styled-components';
+
+import Download from '../../Buttons/Download';
 import SlideIn from '../../../components/SlideIn';
 import Customizer from './Customizer';
 import Tile from './Tile';
@@ -9,6 +11,14 @@ import Layout from './Layout';
 const Wrapper = styled.div`
   width: 100%;
   height: 100%;
+`;
+
+const DownloadWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: -36px;
+  right: 12px;
 `;
 
 const ControlRow = styled.div`
@@ -38,6 +48,7 @@ const Editable = ({
   src,
   zoom,
   editable,
+  id,
 }) => {
   const ref = useRef(null);
   const [selectedClass, setSelectedClass] = useState(null);
@@ -75,6 +86,19 @@ const Editable = ({
 
   return (
     <Wrapper ref={ref} className="Editable">
+      {editable && (
+        <DownloadWrapper>
+          <Download
+            src={src}
+            id={id}
+            fillColors={overwrittenColors}
+            strokeWidth={strokeWidth}
+            strokeColor={strokeColor}
+            zoom={zoom}
+          />
+        </DownloadWrapper>
+
+      )}
       {editable && (
         <Layout
           src={src}
@@ -122,12 +146,10 @@ const Editable = ({
 
 Editable.propTypes = {
   zoom: number.isRequired,
-  showGuides: bool,
+  showGuides: bool.isRequired,
+  editable: bool.isRequired,
   src: string.isRequired,
-};
-
-Editable.defaultProps = {
-  showGuides: false,
+  id: string.isRequired,
 };
 
 export default Editable;

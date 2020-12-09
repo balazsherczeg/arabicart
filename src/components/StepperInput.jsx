@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   display: flex;
-  font-family: var(--sansSemiBold);
+  font-family: var(--sansBold);
   color: #000c;
 `;
 

@@ -23,7 +23,7 @@ const Item = styled.div`
 `;
 
 const Label = styled.div`
-  font-family: var(--sansSemiBold);
+  font-family: var(--sansBold);
   font-size: 12px;
   letter-spacing: .05em;
   margin-right: 1em;
