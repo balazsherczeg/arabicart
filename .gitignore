@@ -120,3 +120,5 @@ build
 
 static/patterns
 public
+.env.development
+.env.production
