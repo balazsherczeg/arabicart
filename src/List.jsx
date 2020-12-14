@@ -6,6 +6,8 @@ import SlideIn from './components/SlideIn';
 import Thumbnail from './View/Thumbnail';
 import Carrousel from './Carrousel';
 import Hero from './Hero';
+import useCategory from './data/useCategory';
+
 
 const Wrapper = styled.div`
   padding-top: 6rem;
@@ -25,6 +27,7 @@ const List = () => {
   const [fullView, setFullView] = useState(null);
   const [showFullView, setShowFullView] = useState(false);
   const patterns = usePatternsByCategory();
+  const category = useCategory();
 
   const handleItemClick = (id) => {
     const index = patterns.findIndex((item) => id === item.id);
@@ -39,7 +42,7 @@ const List = () => {
   return (
     <>
       <Wrapper>
-        <Hero />
+        {!category && <Hero />}
         <Thumbnails>
           {patterns.map((item) => (
             <Thumbnail

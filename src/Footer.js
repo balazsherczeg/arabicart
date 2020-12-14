@@ -71,29 +71,25 @@ const Footer = () => (
       <p>
         was a researcher of Islamic ornamental art. An author of several books on the theory of ornaments,
         in 1879 he published <a href="https://archive.org/details/gri_33125012261786">
-        <i>Les Eléments de l’art arabe</i></a>, a book featuring drawings of 190 ornamental patterns,
-        with instructions, how to construct them.
+        <i>Les Eléments de l’art arabe</i></a>, a book featuring construction plans for about 190 ornamental patterns.
       </p>
     </Column>
 
     <Column className="bio-2">
       <h2>Balázs Herczeg</h2>
       <p>
-        is designer and web developer.
-        This site is a kind of book report.
-        He found <i>Les Eléments...</i> remarkable, but figured out that the only way to read it is to redraw it.
-        And if redrawing, the drawings could be in <i>svg</i> format. And then, why to keep it for himself?
+        is a designer and web developer. He started to read this remarkable book. The reading soon turned to redrawing, then continued as this digital edition.
       </p>
+      <p>Currently, he is available for hire. Feel free to <a href="mailto:balazs@herczeg.ee">contact him</a>.</p>
     </Column>
 
     <Column className="colophon">
       <h2>Colophon</h2>
       <p>
-        Type set in <a href="https://fonts.google.com/specimen/Montserrat">Montserrat</a> and <a href="https://fontlibrary.org/en/font/libre-bodoni">Libre Bodoni</a>.
-        Repos for <a href="https://github.com/balazsherczeg/arabicart-patterns">patterns</a> <i>&</i> <a href="https://github.com/balazsherczeg/arabicart">site</a>.
+        Typeset in <a href="https://fonts.google.com/specimen/Montserrat">Montserrat</a> and <a href="https://fontlibrary.org/en/font/libre-bodoni">Libre Bodoni</a>. <a href="https://github.com/balazsherczeg/arabicart-patterns">Patterns</a> and <a href="https://github.com/balazsherczeg/arabicart">site</a> reposited on GitHub. Built with <a href="https://reactjs.org/">React</a>, on <a href="https://www.gatsbyjs.com/">Gatsby</a>.
       </p>
       <p>
-        Write me: <a href="mailto:balazs@herczeg.ee">balazs@herczeg.ee</a>
+        Say hello: <a href="mailto:balazs@herczeg.ee">balazs@herczeg.ee</a>
       </p>
 
       <p>

@@ -1,3 +1,3 @@
-# The Elemensts of Arabic Art
+# The Elements of Arabic Art
 
-A simple site to view and customize the digitalized ornaments of Jules Bourgoin’s The Elements of Arabic Art.
+The site behind the digitalized edition of Jules Bourgoin’s book _The Elements of Arabic Art_.
