@@ -16,11 +16,11 @@ const Svg = styled.svg`
     cursor: pointer;
   }
 
-  polygon, rect, path {
+  & [class^='shape-'], & [class*=' shape-'] {
     pointer-events: auto;
     stroke-width: ${({zoom}) => 2 / zoom}px;
     stroke: magenta;
-    fill: transparent;
+    fill: transparent !important;
   }
 `;
 

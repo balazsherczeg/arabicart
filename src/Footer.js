@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import Cc from './assets/cc.svg';
+import By from './assets/by.svg';
 
 const Wrapper = styled.footer`
   --columnWidth: calc(100% / var(--columns) - 1rem);
@@ -59,6 +61,8 @@ const LicenceIcon = styled.img`
   margin-right: 4px;
 `;
 
+
+
 /* eslint-disable */
 const Footer = () => (
   <Wrapper>
@@ -98,8 +102,8 @@ const Footer = () => (
           href="http://creativecommons.org/licenses/by/4.0/"
           title="This work is licensed under a Creative Commons Attribution 4.0 International License."
         >
-          <LicenceIcon src="static/cc.svg" />
-          <LicenceIcon src="static/by.svg" />
+          <LicenceIcon src={Cc} />
+          <LicenceIcon src={By} />
         </a>
       </p>
     </Column>

@@ -2,21 +2,21 @@ import React from 'react';
 import {bool, node, func, string} from 'prop-types';
 import styled from 'styled-components';
 
-const ButtonStyled = styled.button`
+const $Button = styled.button`
   background: ${({primary}) => (primary ? 'var(--accentColor)' : '#fff')};
   border: 2px solid;
   border-color: ${({primary}) => (primary ? 'var(--accentColor)' : '#fff')};
   border-radius: 12px;
   color: ${({primary}) => (!primary ? '#000c' : '#fff')};
   cursor: pointer;
-  height: 24px;
+  height: 22px;
   letter-spacing: .05em;
-  line-height: 21px;
-  padding: 0 12px;
+  line-height: 19px;
+  padding: 0 10px;
   text-transform: uppercase;
   width: ${({width}) => width};
   font-family: ${({primary}) => (primary ? 'var(--sans)' : 'var(--sansBold)')};
-  font-size: 12px;
+  font-size: ${({small}) => (small ? '10px' : '12px')};
 
   &:hover {
     background: ${({primary}) => (primary ? 'var(--accentColor)' : '#ccc')};
@@ -31,16 +31,18 @@ const Button = ({
   onClick,
   primary,
   width,
+  small,
 }) => (
-  <ButtonStyled
+  <$Button
     className={className}
     onClick={onClick}
     type="button"
     width={width}
     primary={primary}
+    small={small}
   >
     {children}
-  </ButtonStyled>
+  </$Button>
 );
 
 Button.propTypes = {
@@ -49,12 +51,14 @@ Button.propTypes = {
   children: node.isRequired,
   onClick: func.isRequired,
   width: string,
+  small: bool,
 };
 
 Button.defaultProps = {
   className: null,
   primary: true,
   width: 'auto',
+  small: false,
 };
 
 export default Button;

@@ -1,6 +1,13 @@
 import {useState} from 'react';
 
-let swatches = ["#ff0000", "#00ff00", "#00ffff"];
+let swatches = [
+  '#443430',
+  '#BF402B',
+  '#CEA600',
+  '#4D9BA3',
+  '#216554',
+  '#262F66',
+];
 
 const useSwatches = () => {
   const [s, setS] = useState(swatches);

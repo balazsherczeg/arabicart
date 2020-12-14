@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {bool, func, number, string} from 'prop-types';
 import styled from 'styled-components';
 
@@ -29,6 +29,14 @@ const Label = styled.div`
   margin-right: 1em;
   opacity: .7;
   text-transform: uppercase;
+  padding-left: .75rem;
+`;
+
+const Hint = styled.div`
+  font-family: var(--serifItalic);
+  opacity: .7;
+  padding-right: .75rem;
+  font-size: 14px;
 `;
 
 const IndicatorWrapper = styled.div`
@@ -59,6 +67,12 @@ const Customizer = ({
 }) => {
   const [showStrokeColorInput, setShowStrokeColorInput] = useState(false);
 
+  useEffect(() => {
+    if (strokeWidth === 0) {
+      setShowStrokeColorInput(false);
+    }
+  }, [strokeWidth]);
+
   return (
     <Wrapper>
       <Item>
@@ -79,7 +93,7 @@ const Customizer = ({
           </IndicatorWrapper>
         )}
 
-        {showStrokeColorInput && (
+        {!!strokeWidth && showStrokeColorInput && (
           <StrokeColorInputWrapper>
             <ColorInput
               value={strokeColor}
@@ -93,7 +107,7 @@ const Customizer = ({
         {fillColor ? (
           <Button onClick={onDeselect} primary={false}>Deselect</Button>
         ) : (
-          <Label>Click shape to change fill</Label>
+          <Hint>Click shape to change fill</Hint>
         )}
 
         {fillColor && (

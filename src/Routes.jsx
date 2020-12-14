@@ -1,20 +1,14 @@
 import {hot} from 'react-hot-loader';
 import React from 'react';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {Router} from "@reach/router"
 
 import Page from './Page';
 
 const Routes = () => (
-  <BrowserRouter>
-    <Switch>
-      <Route path="/category/:category">
-        <Page />
-      </Route>
-      <Route path="/">
-        <Page />
-      </Route>
-    </Switch>
-  </BrowserRouter>
+  <Router>
+    <Page path="/category/:category"/>
+    <Page path="/" />
+  </Router>
 );
 
 export default hot(module)(Routes);

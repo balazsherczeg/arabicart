@@ -8,22 +8,23 @@ const $Indicator = styled.button`
   border: none;
   cursor: pointer;
   display: inline-block;
-  height: 1.6rem;
-  margin-right: .5rem;
+  height: 1.5rem;
   vertical-align: middle;
-  width: 1.6rem;
+  width: 1.5rem;
 `;
 
 const Indicator = ({
   onClick,
   value,
   title,
+  size,
 }) => (
   <$Indicator
     title={title}
     backgroundColor={value}
     role="button"
     onClick={onClick}
+    size={size}
   />
 );
 

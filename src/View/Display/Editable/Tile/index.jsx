@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   ${({fillColors}) => (
     Object.keys(fillColors).map((shapeClass) => (`
       .${shapeClass} {
-        fill: ${fillColors[shapeClass]} !important;
+        fill: ${fillColors[shapeClass]};
       }
     `))
   )}

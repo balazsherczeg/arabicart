@@ -3,11 +3,16 @@ import {useState, useEffect} from 'react';
 // https://gist.github.com/joshuacerbito/ea318a6a7ca4336e9fadb9ae5bbb87f4
 
 const useScroll = () => {
-  const [scroll, setScroll] = useState({
-    x: document.body.getBoundingClientRect().left,
-    y: document.body.getBoundingClientRect().top,
-    direction: '',
-  });
+  const [scroll, setScroll] = useState({});
+
+  useEffect(() => {
+    const {left, top} = document.body.getBoundingClientRect();
+    setScroll({
+      x: left,
+      y: top,
+      direction: '',
+    });
+  }, [])
 
   const listener = () => {
     setScroll((prev) => ({

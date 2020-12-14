@@ -1,13 +1,13 @@
 @font-face {
   font-family: 'montserratmedium';
-  src: url('/static/fonts/montserrat-medium-webfont.woff2') format('woff2');
+  src: url('../fonts/montserrat-medium-webfont.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'MontserratSemiBold';
-  src: url('/static/fonts/montserrat-semibold-webfont.woff2') format('woff2');
+  src: url('../fonts/montserrat-semibold-webfont.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
@@ -16,28 +16,28 @@
   font-family: 'LibreBodoni';
   font-style: normal;
   font-weight: 400;
-  src: url(/static/fonts/librebodoniv2002-regular.woff2) format('woff2');
+  src: url(../fonts/librebodoniv2002-regular.woff2) format('woff2');
 }
 
 @font-face {
   font-family: 'LibreBodoniItalic';
   font-style: italic;
   font-weight: normal;
-  src: url(/static/fonts/librebodoniv2002-italic.woff2) format('woff2');
+  src: url(../fonts/librebodoniv2002-italic.woff2) format('woff2');
 }
 
 @font-face {
   font-family: 'ArapeyItalic';
   font-style: italic;
   font-weight: normal;
-  src: url(/static/fonts/Arapey-Italic.ttf) format('truetype');
+  src: url(../fonts/Arapey-Italic.ttf) format('truetype');
 }
 
 @font-face {
   font-family: Questa;
   font-style: normal;
   font-weight: 400;
-  src: url(/static/fonts/Questa.otf) format('opentype');
+  src: url(../fonts/Questa.otf) format('opentype');
 }
 
 /* 6 8 10 13 16 21 26 34 42 */

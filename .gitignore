@@ -118,4 +118,4 @@ dist
 # Neutrino build directory
 build
 
-patterns
+static/patterns

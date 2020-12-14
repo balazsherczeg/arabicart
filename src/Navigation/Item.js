@@ -1,6 +1,6 @@
 import React from 'react';
 import {bool, string} from 'prop-types';
-import {Link} from 'react-router-dom';
+import {Link} from '@reach/router';
 import styled from 'styled-components';
 import useCategoryItemCount from '../data/useCategoryItemCount';
 

@@ -42,7 +42,7 @@ const Selectable = ({
         shape.addEventListener('click', onShapeClick);
       });
     }
-  }, [svgContainerRef]);
+  }, [svgContainerRef, onShapeClick]);
 
   return (
     <Wrapper

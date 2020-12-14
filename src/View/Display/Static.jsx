@@ -27,7 +27,7 @@ const Display = ({
   if (showGuides) {
     const manipulatable = Manipulatable(src);
     manipulatable.showGuides();
-    manipulatable.setGuideWidth(1 / scale);
+    manipulatable.setGuideWidth(scale);
     renderableSrc = manipulatable.getSrc();
     manipulatable.cleanUp();
   }
