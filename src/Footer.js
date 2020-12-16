@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import Cc from './assets/cc.svg';
 import By from './assets/by.svg';
+import ShopLink from './ShopLink';
 
 const Wrapper = styled.footer`
   --columnWidth: calc(100% / var(--columns) - 1rem);
@@ -16,16 +18,18 @@ const Wrapper = styled.footer`
     margin-bottom: 1.5rem;
   }
 
-  a, a:visited {
-    color: var(--accentColor);
-    text-decoration: none;
-  }
-
   display: grid;
   grid-template-columns: repeat(auto-fill, var(--columnWidth));
   grid-template-rows: auto;
   grid-gap: var(--gutter);
   grid-template-areas: var(--footerLayout);
+`;
+
+const A = styled.a`
+  &, &:visited {
+    color: var(--accentColor);
+    text-decoration: none;
+  }
 `;
 
 const Column = styled.div`
@@ -61,8 +65,6 @@ const LicenceIcon = styled.img`
   margin-right: 4px;
 `;
 
-
-
 /* eslint-disable */
 const Footer = () => (
   <Wrapper>
@@ -70,37 +72,41 @@ const Footer = () => (
       <h2>Jules Bourgoin</h2>
       <p>
         was a researcher of Islamic ornamental art. An author of several books on the theory of ornaments,
-        in 1879 he published <a href="https://archive.org/details/gri_33125012261786">
-        <i>Les Eléments de l’art arabe</i></a>, a book featuring construction plans for about 190 ornamental patterns.
+        in 1879 he published <A href="https://archive.org/details/gri_33125012261786">
+        <i>Les Eléments de l’art arabe</i></A>, a book featuring construction plans for about 190 ornamental patterns.
       </p>
     </Column>
 
     <Column className="bio-2">
       <h2>Balázs Herczeg</h2>
       <p>
-        is a designer and web developer, and has an affinity with <a href="https://play.google.com/store/apps/details?id=com.kolamapp.kolam">geometric patterns</a>. He started to read this remarkable book. The reading soon turned to redrawing, then continued as this digital edition.
+        is a designer and web developer, and has an affinity with <A href="https://play.google.com/store/apps/details?id=com.kolamapp.kolam">geometric patterns</A>. He started to read this remarkable book. The reading soon turned to redrawing, then continued as this digital edition.
       </p>
-      <p>Currently, he is available for hire. Feel free to <a href="mailto:balazs@herczeg.ee">contact him</a>.</p>
+      <p>Currently, he is available for hire. Feel free to <A href="mailto:balazs@herczeg.ee">contact him</A>.</p>
     </Column>
 
     <Column className="colophon">
       <h2>Colophon</h2>
       <p>
-        Typeset in <a href="https://fonts.google.com/specimen/Montserrat">Montserrat</a> and <a href="https://fontlibrary.org/en/font/libre-bodoni">Libre Bodoni</a>. <a href="https://github.com/balazsherczeg/arabicart-patterns">Patterns</a> and <a href="https://github.com/balazsherczeg/arabicart">site</a> reposited on GitHub. Built with <a href="https://reactjs.org/">React</a>, on <a href="https://www.gatsbyjs.com/">Gatsby</a>.
+        Typeset in <A href="https://fonts.google.com/specimen/Montserrat">Montserrat</A> and <A href="https://fontlibrary.org/en/font/libre-bodoni">Libre Bodoni</A>. <A href="https://github.com/balazsherczeg/arabicart-patterns">Patterns</A> and <A href="https://github.com/balazsherczeg/arabicart">site</A> reposited on GitHub. Built with <A href="https://reactjs.org/">React</A>, on <A href="https://www.gatsbyjs.com/">Gatsby</A>.
       </p>
       <p>
-        Say hello: <a href="mailto:balazs@herczeg.ee">balazs@herczeg.ee</a>
+        Say hello: <A href="mailto:balazs@herczeg.ee">balazs@herczeg.ee</A>
       </p>
 
       <p>
-        <a
+        <ShopLink />
+      </p>
+
+      <p>
+        <A
           rel="license"
           href="http://creativecommons.org/licenses/by/4.0/"
           title="This work is licensed under a Creative Commons Attribution 4.0 International License."
         >
           <LicenceIcon src={Cc} />
           <LicenceIcon src={By} />
-        </a>
+        </A>
       </p>
     </Column>
   </Wrapper>

@@ -113,15 +113,15 @@ const Manipulatable = (src) => {
       largestGroup.forEach((element) => element.remove());
 
       // Create a simple rectangle with the same color
-      const offset = 50;
+      const offset = 0;
       const background = document.createElement('rect');
       setAttributes(background, {
         fill: largestGroupFill,
         stroke: 'none',
         x: `-${offset}`,
         y: `-${offset}`,
-        width: getWidth() + offset,
-        height: getWidth() + offset,
+        width: getWidth() + 2 * offset,
+        height: getHeight() + 2 * offset,
       });
 
       // And place it under other shapes

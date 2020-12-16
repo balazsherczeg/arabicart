@@ -33,14 +33,14 @@ const Wrapper = styled.div`
       fill: #aaa;
     }
   `))}
-
-  span {
-    color: #000;
-    font-family: ${({active}) => (active ? 'var(--serifItalic)' : 'var(--serif)')};
-    letter-spacing: 0.02em;
-    opacity: .8;
-  }
 `;
+
+const Inner = styled.span`
+  color: #000;
+  font-family: ${({active}) => (active ? 'var(--serifItalic)' : 'var(--serif)')};
+  letter-spacing: 0.02em;
+  opacity: .8;
+  `;
 
 const Svg = styled.svg`
   height: 1.5rem;
@@ -55,6 +55,7 @@ const Item = ({
   children,
   to,
   slug,
+  href,
 }) => {
   const itemCount = useCategoryItemCount(slug);
 
@@ -64,21 +65,29 @@ const Item = ({
       category={slug}
       empty={itemCount === 0}
     >
-      <Link to={to}>
-        {itemCount > 1 && (
-          <Svg
-            viewBox="0 0 500 500"
-          >
-            <use
-              xlinkHref={`#${slug}`}
-            />
-          </Svg>
-        )}
+      {href ? (
+        <a href={href}>
+          <Inner>
+            {children}
+          </Inner>
+        </a>
+      ) : (
+        <Link to={to}>
+          {itemCount > 1 && (
+            <Svg
+              viewBox="0 0 500 500"
+            >
+              <use
+                xlinkHref={`#${slug}`}
+              />
+            </Svg>
+          )}
 
-        <span>
-          {children}
-        </span>
-      </Link>
+          <Inner>
+            {children}
+          </Inner>
+        </Link>
+      )}
     </Wrapper>
   );
 };
@@ -88,10 +97,12 @@ Item.propTypes = {
   children: string.isRequired,
   to: string.isRequired,
   slug: string,
+  href: string,
 };
 
 Item.defaultProps = {
   slug: 'all',
+  href: false,
 };
 
 export default Item;

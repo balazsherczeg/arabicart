@@ -9,6 +9,8 @@
 
   --accentColor: var(--turquois);
 
+  --shopColor: #E30020;
+
   --categoryColor-all: var(--turquois);
   --categoryColor-hexagonals: var(--red);
   --categoryColor-octagonals: var(--blue);

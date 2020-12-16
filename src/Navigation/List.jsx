@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import ShopLink from '../ShopLink';
 import useCategory from '../data/useCategory';
 import useCategories from '../data/useCategories';
 import Item from './Item';
@@ -16,6 +17,12 @@ const Wrapper = styled.div`
 
 const IconDefs = styled.div`
   display: none;
+`;
+
+const Spacer = styled.div`
+  line-height: 3rem;
+  height: 3rem;
+  padding: 0 1rem 0 3rem;
 `;
 
 const List = () => {
@@ -52,6 +59,10 @@ const List = () => {
           </Item>
         ),
       )}
+
+      <Spacer>
+        <ShopLink />
+      </Spacer>
     </Wrapper>
   );
 };
