@@ -22,9 +22,10 @@ const $Caption = styled.div`
   bottom: 0;
   color: #333;
   display: block;
-  font-family: var(--sans);
+  font-family: var(--sansBold);
   font-size: .8rem;
   left: 0;
+  letter-spacing: 0.05em;
   line-height: 1em;
   padding: .25em .5em;
   position: absolute;

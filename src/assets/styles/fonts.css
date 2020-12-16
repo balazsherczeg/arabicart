@@ -1,11 +1,4 @@
 @font-face {
-  font-family: 'montserratmedium';
-  src: url('../fonts/montserrat-medium-webfont.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
   font-family: 'MontserratSemiBold';
   src: url('../fonts/montserrat-semibold-webfont.woff2') format('woff2');
   font-weight: normal;
@@ -26,35 +19,14 @@
   src: url(../fonts/librebodoniv2002-italic.woff2) format('woff2');
 }
 
-@font-face {
-  font-family: 'ArapeyItalic';
-  font-style: italic;
-  font-weight: normal;
-  src: url(../fonts/Arapey-Italic.ttf) format('truetype');
-}
-
-@font-face {
-  font-family: Questa;
-  font-style: normal;
-  font-weight: 400;
-  src: url(../fonts/Questa.otf) format('opentype');
-}
-
 /* 6 8 10 13 16 21 26 34 42 */
 
 :root {
   --xHeightAdjustment: 1.17;
 
-  --sans: montserratmedium, sans-serif;
   --sansBold: MontserratSemiBold, sans-serif;
-
-  --serif: LibreBodoni, sans-serif;
-  --serifItalic: LibreBodoniItalic, serif;
-
-  --serif: Questa, serif;
   --serif: LibreBodoni, serif;
   --serifItalic: LibreBodoniItalic, serif;
-  /*--serifItalic: ArapeyItalic, serif;*/
 
   --fontSizeSerif0: calc(1rem * var(--xHeightAdjustment));
 

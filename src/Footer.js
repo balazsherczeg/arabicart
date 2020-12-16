@@ -78,7 +78,7 @@ const Footer = () => (
     <Column className="bio-2">
       <h2>Balázs Herczeg</h2>
       <p>
-        is a designer and web developer. He started to read this remarkable book. The reading soon turned to redrawing, then continued as this digital edition.
+        is a designer and web developer, and has an affinity with <a href="https://play.google.com/store/apps/details?id=com.kolamapp.kolam">geometric patterns</a>. He started to read this remarkable book. The reading soon turned to redrawing, then continued as this digital edition.
       </p>
       <p>Currently, he is available for hire. Feel free to <a href="mailto:balazs@herczeg.ee">contact him</a>.</p>
     </Column>

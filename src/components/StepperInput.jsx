@@ -20,7 +20,7 @@ const Button = styled.button`
   border: none;
   cursor: pointer;
   fill: #000c;
-  font-family: var(--sans);
+  font-family: var(--sansBold);
   font-size: 1.1rem;
   height: 1.5rem;
   line-height: 1rem;
