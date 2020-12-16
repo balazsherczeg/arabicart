@@ -1,14 +1,12 @@
 import {useEffect} from 'react';
 
 let data = null;
-let started = false;
-
-console.log(process.env.DATA_URL);
+let loadStarted = false;
 
 const useData = () => {
   useEffect(() => {
-    if (data === null && started === false) {
-      started = true;
+    if (data === null && loadStarted === false) {
+      loadStarted = true;
       fetch(`${process.env.DATA_URL}index.json`).then((result) => {
         result.json().then((d) => {
           data = d;

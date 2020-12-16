@@ -18,7 +18,7 @@ const usePattern = (id) => {
         ),
       );
     }
-  });
+  }, []);
 
   return srcs[id];
 };
