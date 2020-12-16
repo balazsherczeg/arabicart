@@ -4,7 +4,7 @@ import usePatternsByCategory from './data/usePatternsByCategory';
 
 import SlideIn from './components/SlideIn';
 import Thumbnail from './View/Thumbnail';
-import Carrousel from './Carrousel';
+import Carrousel from './components/Carrousel';
 import Hero from './Hero';
 import useCategory from './data/useCategory';
 

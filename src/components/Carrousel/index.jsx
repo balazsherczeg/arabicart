@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {arrayOf, func, number, object} from 'prop-types';
 import styled from 'styled-components';
 
 import Item from './Item';
 import Buttons from './Buttons';
-import Control from '../View/Control';
+import Control from '../../View/Control';
 
 const Wrapper = styled.div`
   background: rgba(255, 255, 255, .9);
@@ -54,6 +54,26 @@ const Carrousel = ({
   const lastFrame = index === items.length - 1;
 
   const toggleCarrousel = (value) => {setShowButtons(!!value);};
+
+  const handleKeyDown = (event) => {
+    switch (event.keyCode) {
+      case 27: // Escape
+        onClose();
+        break;
+      case 39: // Right arrow
+        if (!lastFrame) handleNextClick();
+        break;
+      case 37: // Left arrow
+        if (!firstFrame) handlePrevClick();
+        break;
+      // No default
+      }
+  }
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  });
 
   return (
     <Wrapper>
