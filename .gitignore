@@ -119,6 +119,6 @@ dist
 build
 
 static/patterns
-public
+public/
 .env.development
 .env.production
