@@ -6,8 +6,21 @@ import Logo from './Logo';
 import useScroll from '../hooks/useScroll';
 
 const Wrapper = styled.header`
-  background: #fffffffa;
-  height: 96px;
+  @media only screen and (max-width: 599px) {
+    --horizontalPadding: .75rem;
+    --navigationBottom: 24px;
+    font-size: .66666rem;
+    height: 5rem;
+  }
+
+  @media only screen and (min-width: 600px) {
+    --horizontalPadding: 1.25rem;
+    --navigationBottom: 32px;
+    font-size: 1rem;
+    height: 6rem;
+  }
+
+  background: #ffffff;
   left: 0;
   position: fixed;
   right: 0;
@@ -17,33 +30,34 @@ const Wrapper = styled.header`
 
 const Inner = styled.div`
   position: relative;
-  height: 96px;
+  height: 100%;
 `;
 
 const Scaler = styled.div`
    transform-origin: 0 100%;
    position: absolute;
    bottom: 24px;
-   left: 20px;
+   left: var(--horizontalPadding);
    display: flex;
 `;
 
 const LogoContainer = styled.div`
-  width: 48px;
-  height: 48px;
+  width: 3em;
+  height: 3em;
 `;
 
 const TextContainer = styled.div`
   padding-left: 8px;
+  height: 3em;
 `;
 
 const Author = styled.span`
   display: block;
   font-family: var(--sansBold);
-  font-size: 1rem;
-  line-height: 1;
-  margin-bottom: 6px;
-  margin-left: 2px;
+  font-size: 1em;
+  line-height: 1em;
+  margin-bottom: 0.375em;
+  margin-left: 0.125em;
   opacity: .9;
   text-transform: uppercase;
   opacity: 0.8;
@@ -51,7 +65,8 @@ const Author = styled.span`
 
 const Title = styled.h1`
   font-family: var(--sansBold);
-  font-size: var(--fontSizeSerif2);
+  font-size: 1.875em;
+  line-height: .8em;
   opacity: 0.8;
 
   i {
@@ -68,8 +83,8 @@ const Title = styled.h1`
 
 const NavigationContainer = styled.div`
   position: absolute;
-  right: 20px;
-  bottom: 32px;
+  right: var(--horizontalPadding);
+  bottom: var(--navigationBottom);
 `;
 
 const MAX_SCROLL = 1000;
@@ -92,12 +107,12 @@ const Header = () => {
 
   const titleMove = moveWithScroll(scrollTop, 10);
   const navigationMove = moveWithScroll(scrollTop, 16);
-  const wrapperPosition = moveWithScroll(scrollTop, 32);
+  const wrapperPosition = moveWithScroll(scrollTop, 2);
   const titleScale = getTitleScale(scrollTop);
   const rotation = getRotation(scrollTop);
 
   return (
-    <Wrapper style={{transform: `translate3d(0, -${wrapperPosition}px, 0)`}}>
+    <Wrapper style={{transform: `translate3d(0, -${wrapperPosition}em, 0)`}}>
       <Inner>
         <Scaler
           style={{

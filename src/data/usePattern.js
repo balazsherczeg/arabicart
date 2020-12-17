@@ -1,6 +1,5 @@
 import {useEffect, useState} from 'react';
-
-const srcs = {};
+import srcs from './srcs';
 
 const usePattern = (id) => {
   const [, setLoaded] = useState(false);

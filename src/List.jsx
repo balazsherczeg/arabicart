@@ -8,7 +8,6 @@ import Carrousel from './components/Carrousel';
 import Hero from './Hero';
 import useCategory from './data/useCategory';
 
-
 const Wrapper = styled.div`
   padding-top: 6rem;
 `;
@@ -19,7 +18,7 @@ const Thumbnails = styled.div`
   grid-gap: var(--gutter);
   grid-template-columns: repeat(auto-fill, var(--columnWidth));
   justify-content: space-between;
-  padding: 1.5rem 1.5rem 2rem;
+  padding: var(--padding) var(--padding) 2rem;
   position: relative;
 `;
 

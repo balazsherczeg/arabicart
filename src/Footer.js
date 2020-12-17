@@ -12,7 +12,7 @@ const Wrapper = styled.footer`
   flex-wrap: wrap;
   font-family: var(--serif);
   justify-content: space-between;
-  padding: 1.5rem 1.5rem 3rem;
+  padding: 1.5rem var(--padding) 3rem;
 
   p {
     margin-bottom: 1.5rem;

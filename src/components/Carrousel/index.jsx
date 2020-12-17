@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Item from './Item';
 import Buttons from './Buttons';
 import Control from '../../View/Control';
+import preloadPattern from '../../data/preloadPattern';
 
 const Wrapper = styled.div`
   background: rgba(255, 255, 255, .9);
@@ -34,6 +35,16 @@ const Carrousel = ({
     transform: `translate3d(-${index * 100}vw, 0, 0)`,
   });
 
+  const preload = (preloadableIndex) => {
+    const preloadableId = items[preloadableIndex] && items[preloadableIndex].id || null;
+    if (preloadableId) preloadPattern(preloadableId);
+  }
+
+  useEffect(() => {
+    preload(index - 1);
+    preload(index + 1);
+  }, [index]);
+
   const handleClick = (nextIndex) => {
     setIndex(nextIndex);
     const nextRenderables = [...renderables];
@@ -54,6 +65,7 @@ const Carrousel = ({
   const lastFrame = index === items.length - 1;
 
   const toggleCarrousel = (value) => {setShowButtons(!!value);};
+
 
   const handleKeyDown = (event) => {
     switch (event.keyCode) {
