@@ -73,7 +73,7 @@ const Item = ({
         </a>
       ) : (
         <Link to={to}>
-          {itemCount > 1 && (
+          {itemCount > 0 && (
             <Svg
               viewBox="0 0 500 500"
             >
@@ -83,7 +83,9 @@ const Item = ({
             </Svg>
           )}
 
-          <Inner>
+          <Inner
+            active={active}
+          >
             {children}
           </Inner>
         </Link>
@@ -101,7 +103,7 @@ Item.propTypes = {
 };
 
 Item.defaultProps = {
-  slug: 'all',
+  slug: null,
   href: false,
 };
 

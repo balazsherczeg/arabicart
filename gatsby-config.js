@@ -23,5 +23,13 @@ module.exports = {
         icon: `src/assets/favicon.png`,
       },
     },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /\.inline\.svg$/
+        }
+      }
+    },
   ],
 };
