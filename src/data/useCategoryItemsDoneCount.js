@@ -2,7 +2,7 @@ import usePatterns from './usePatterns';
 import useCategories from './useCategories';
 import {getCategoryBySlug} from './utils';
 
-const useCategoryItemCount = (categorySlug) => {
+const useCategoryItemsDoneCount = (categorySlug) => {
   const allPatterns = usePatterns();
   const categories = useCategories();
 
@@ -14,4 +14,4 @@ const useCategoryItemCount = (categorySlug) => {
   return allPatterns.filter((pattern) => pattern.category === categoryId).length;
 };
 
-export default useCategoryItemCount;
+export default useCategoryItemsDoneCount;

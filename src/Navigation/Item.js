@@ -2,7 +2,8 @@ import React from 'react';
 import {bool, string} from 'prop-types';
 import {Link} from '@reach/router';
 import styled from 'styled-components';
-import useCategoryItemCount from '../data/useCategoryItemCount';
+import useCategoryItemsDoneCount from '../data/useCategoryItemsDoneCount';
+import useCategoryItemsCount from '../data/useCategoryItemsCount';
 
 const Wrapper = styled.div`
   --color: var(--categoryColor-${({category}) => category});
@@ -42,6 +43,18 @@ const Inner = styled.span`
   opacity: .8;
   `;
 
+const Count = styled.span`
+  font-size: 11.5px;
+  font-family: var(--sansBold);
+  margin-left: .5rem;
+  opacity: .7;
+`;
+
+const Slash = styled.span`
+  display: inline-block;
+  padding: 0 .1em;
+`;
+
 const Svg = styled.svg`
   height: 1.5rem;
   left: 1rem;
@@ -57,13 +70,14 @@ const Item = ({
   slug,
   href,
 }) => {
-  const itemCount = useCategoryItemCount(slug);
+  const itemsDoneCount = useCategoryItemsDoneCount(slug);
+  const itemsCount = useCategoryItemsCount(slug);
 
   return (
     <Wrapper
       active={active}
       category={slug}
-      empty={itemCount === 0}
+      empty={itemsDoneCount === 0}
     >
       {href ? (
         <a href={href}>
@@ -73,7 +87,7 @@ const Item = ({
         </a>
       ) : (
         <Link to={to}>
-          {itemCount > 0 && (
+          {itemsDoneCount > 0 && (
             <Svg
               viewBox="0 0 500 500"
             >
@@ -87,6 +101,11 @@ const Item = ({
             active={active}
           >
             {children}
+            {slug && (
+              <Count>
+                {itemsDoneCount}<Slash>/</Slash>{itemsCount}
+              </Count>
+            )}
           </Inner>
         </Link>
       )}
