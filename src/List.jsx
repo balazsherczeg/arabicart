@@ -42,6 +42,7 @@ const List = () => {
     <>
       <Wrapper>
         {!category && <Hero />}
+
         <Thumbnails>
           {patterns.map((item) => (
             <Thumbnail

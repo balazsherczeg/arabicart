@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {arrayOf, func, number, object} from 'prop-types';
 import styled from 'styled-components';
+import {useSwipeable} from 'react-swipeable';
 
 import Item from './Item';
 import Buttons from './Buttons';
@@ -13,7 +14,8 @@ const Wrapper = styled.div`
   overflow: hidden;
   width: 100vw;
   position: relative;
-`;
+  touch-action: pan-y;
+ `;
 
 const Main = styled.div`
   position: absolute;
@@ -40,10 +42,27 @@ const Carrousel = ({
     if (preloadableId) preloadPattern(preloadableId);
   }
 
+  // Disable scroll
+
+  useEffect(() => {
+    const {scrollX, scrollY} = window;
+    window.onscroll = () => window.scrollTo(scrollX, scrollY);
+    return () => window.onscroll = () => {};
+  }, []);
+
+  // Preload
+
   useEffect(() => {
     preload(index - 1);
     preload(index + 1);
   }, [index]);
+
+  const firstFrame = index === 0;
+  const lastFrame = index === items.length - 1;
+
+  const toggleCarrousel = (value) => {setShowButtons(!!value);};
+
+  // Buttons
 
   const handleClick = (nextIndex) => {
     setIndex(nextIndex);
@@ -61,11 +80,7 @@ const Carrousel = ({
     handleClick(index - 1);
   };
 
-  const firstFrame = index === 0;
-  const lastFrame = index === items.length - 1;
-
-  const toggleCarrousel = (value) => {setShowButtons(!!value);};
-
+  // Keyboard
 
   const handleKeyDown = (event) => {
     switch (event.keyCode) {
@@ -87,8 +102,19 @@ const Carrousel = ({
     return () => document.removeEventListener('keydown', handleKeyDown);
   });
 
+  // Gestures
+
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: (eventData) => {console.log("sl!", eventData); handleNextClick();},
+    onSwipedRight: (eventData) => {console.log("sr!", eventData); handlePrevClick();},
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true,
+  });
+
   return (
-    <Wrapper>
+    <Wrapper
+      {...swipeHandlers}
+    >
       {showButtons && (
         <Buttons
           onPrev={handlePrevClick}

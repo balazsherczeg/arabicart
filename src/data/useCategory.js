@@ -1,9 +1,10 @@
-import {useParams} from '@reach/router';
+import {useMatch} from '@reach/router';
 
 const useCategory = () => {
-  const {category} = useParams();
-
-  return category;
+  const match = useMatch('/category/:category');
+  return (match)
+    ? match.category
+    : null;
 };
 
 export default useCategory;

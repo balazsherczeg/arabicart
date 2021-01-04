@@ -5,11 +5,9 @@ import {getCategoryBySlug} from './utils';
 const useCategoryItemsDoneCount = (categorySlug) => {
   const categories = useCategories();
 
-  // if (categorySlug == null || categorySlug === 'all') return allPatterns.length;
-
-  const category = getCategoryBySlug(categorySlug, categories);
-
-  return category.count;
+  return (categorySlug == null || categorySlug === 'all')
+    ? categories.reduce((a, {count}) => a + count, 0)
+    : getCategoryBySlug(categorySlug, categories).count;
 };
 
 export default useCategoryItemsDoneCount;

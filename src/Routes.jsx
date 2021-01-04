@@ -6,8 +6,7 @@ import Page from './Page';
 
 const Routes = () => (
   <Router>
-    <Page path="/category/:category"/>
-    <Page path="/" />
+    <Page default="/" />
   </Router>
 );
 

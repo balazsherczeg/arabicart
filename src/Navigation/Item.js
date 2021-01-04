@@ -101,7 +101,7 @@ const Item = ({
             active={active}
           >
             {children}
-            {slug && (
+            {!!itemsDoneCount && (
               <Count>
                 {itemsDoneCount}<Slash>/</Slash>{itemsCount}
               </Count>
