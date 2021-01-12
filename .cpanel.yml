@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/np16374/domains/herczeg.ee/test
+    - /bin/cp index.html $DEPLOYPATH
