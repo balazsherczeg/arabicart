@@ -105,8 +105,8 @@ const Carrousel = ({
   // Gestures
 
   const swipeHandlers = useSwipeable({
-    onSwipedLeft: (eventData) => {console.log("sl!", eventData); handleNextClick();},
-    onSwipedRight: (eventData) => {console.log("sr!", eventData); handlePrevClick();},
+    onSwipedLeft: handleNextClick,
+    onSwipedRight: handlePrevClick,
     preventDefaultTouchmoveEvent: true,
     trackMouse: true,
   });
