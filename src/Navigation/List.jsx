@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import ShopLink from '../ShopLink';
 import useCategory from '../data/useCategory';
 import useCategories from '../data/useCategories';
 import Item from './Item';
@@ -50,10 +49,6 @@ const List = () => {
           </Item>
         ),
       )}
-
-      <Spacer>
-        <ShopLink />
-      </Spacer>
     </Wrapper>
   );
 };

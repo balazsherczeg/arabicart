@@ -95,10 +95,6 @@ const Footer = () => (
       </p>
 
       <p>
-        <ShopLink />
-      </p>
-
-      <p>
         <A
           rel="license"
           href="http://creativecommons.org/licenses/by/4.0/"
