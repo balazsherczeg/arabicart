@@ -19,7 +19,7 @@ const $ShopLink = styled.a`
 `;
 
 
-const ShopLink = ({}) => (
+const ShopLink = () => (
   <$ShopLink
     href="https://www.redbubble.com/people/balazsherczeg/shop?collections=1884852"
     target="_blank"

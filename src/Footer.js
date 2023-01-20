@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import Cc from './assets/cc.svg';
 import By from './assets/by.svg';
-import ShopLink from './ShopLink';
 
 const Wrapper = styled.footer`
   --columnWidth: calc(100% / var(--columns) - 1rem);

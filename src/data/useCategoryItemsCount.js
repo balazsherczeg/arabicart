@@ -1,4 +1,3 @@
-import usePatterns from './usePatterns';
 import useCategories from './useCategories';
 import {getCategoryBySlug} from './utils';
 

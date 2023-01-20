@@ -19,12 +19,6 @@ const IconDefsContainer = styled.div`
   display: none;
 `;
 
-const Spacer = styled.div`
-  line-height: 3rem;
-  height: 3rem;
-  padding: 0 1rem 0 3rem;
-`;
-
 const List = () => {
   const categories = useCategories();
   const category = useCategory();
